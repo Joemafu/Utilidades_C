@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1570634711 source:c:\users\joel\google drive\workspace\biblioteca de funciones\arrayemployees.c
+	"ArrayEmployees.h"
+
+1570130326 c:\users\joel\google drive\workspace\biblioteca de funciones\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1570125031 source:c:\users\joel\google drive\workspace\biblioteca de funciones\main.c
+	"ArrayEmployees.h"
+
