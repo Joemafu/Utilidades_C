@@ -134,6 +134,17 @@ float getFloat(char message[]);
  */
 int getInt(char message[]);
 
+/** \brief Prints a message that receives from param, asks for a string of chars that only accepts numbers,
+ *         validates, casts the string into an int and returns it (Positive and negative values admitted).
+ *
+ * \param message[] char message to print, asking for the int.
+ * \param int Min number accepted.
+ * \param int Max number accepted.
+ * \return int
+ *
+ */
+int getIntMinMax(char message[],int,int);
+
 /** \brief Prints a message and expects for a float value (Only positive values admitted).
  *
  * \param char[] Gets the message to print.

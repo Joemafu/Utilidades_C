@@ -254,6 +254,42 @@ int getInt(char message[])
 }
 
 
+int getIntMinMax(char message[],int min,int max)
+{
+    int i;
+    char string[10]; ///Almacena hasta el 2147483647.
+    int ret;
+    int success;
+    do
+    {
+        printf(message);
+        scanf("%s",string);
+        fflush(stdin);
+        success=0;
+        if (!((string[0]>47&&string[0]<58)||(string[0]==45)))
+        {
+            success--;
+        }
+        for(i=1;string[i]!='\0';i++)
+        {
+            if((string[i]<48||string[i]>57)||(success<0))
+            {
+                success--;
+                break;
+            }
+        }
+        ret=atoi(string);
+        if ((ret<min||ret>max)||(success<0))
+        {
+            printf("Ingrese un valor numerico valido. (Solo numeros enteros entre %d y %d).\n\n",min,max);
+            success--;
+        }
+     }while(success<0);
+
+    return ret;
+}
+
+
 float getPositiveFloat(char message[])
 {
     int i;

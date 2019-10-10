@@ -2,6 +2,10 @@
 
 int main()
 {
+    int ret;
+    ret=getIntMinMax("Ingrese un numero",-10,12);
+    printf("\n%d",ret);
+    /*
     int option;
     option=showMenuGetOption("Ingrese opcion.\n",1,9);
 
@@ -27,4 +31,5 @@ int main()
         break;
     }
     return 0;
+    */
 }
