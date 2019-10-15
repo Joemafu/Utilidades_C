@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1570716152 source:d:\a\mahafud\equipo.c
+	"Equipo.h"
+
+1570716160 d:\a\mahafud\equipo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1570715155 source:d:\a\mahafud\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Equipo.h"
+
