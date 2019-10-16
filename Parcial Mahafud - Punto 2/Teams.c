@@ -38,7 +38,6 @@ int addTeam(sTeam* list, int len, int id)
                 list[i].code = id;
                 strcpy(list[i].name, name);
                 strcpy(list[i].locality, locality);
-                printf("Confirmar? (s/n): \n");
                 if(getConfirm()==1)
                 {
                     list[i].isEmpty = 0;
@@ -118,17 +117,23 @@ int sortTeamsByStringAndInt(sTeam* list, int len, int order)
     return ret;
 }
 
-int printAllTeams(sTeam* list, int length)
+int printAllTeams(sTeam* list, int len)
 {
     int i;
     system("cls");
-    printTeamTab();
-    for(i=0; i<length; i++)
+    if(checkAllTeamsEmpty(list,len)==0)
     {
-        printATeam(list, i);
+        printTeamTab();
+        for(i=0; i<len; i++)
+        {
+            printATeam(list, i);
+        }
+        system("pause");
+        system("cls");
+    }else
+    {
+        showMessage("No hay equipos cargados.\n");
     }
-    system("pause");
-    system("cls");
     return 0;
 }
 
@@ -169,23 +174,116 @@ void hardcodeTeams (sTeam* list)
     return;
 }
 
-int checkExistence (sTeam* list,int len,int id)
+void modifyTeam(sTeam* list,int len)
 {
     int i;
-    int ret=0;
+    int id;
+    int e;
+    int option;
+    char auxName[51];
+    char auxLocality[33];
 
-    for(i=0;i<len;i++)
+    if(checkAllTeamsEmpty(list,len)==0)
     {
-        if((id==list[i].code)&&(list[i].isEmpty==0))
+        do
         {
-            ret=1;
+            id=getIntMinMax("Ingrese el codigo del equipo a modificar: ",1,len);
+            e=checkTeamExistence(list,len,id);
+        }while(e==0);
+
+        for (i=0;i<len;i++)
+        {
+            if(list[i].code==id)
+            {
+
+                printTeamTab();
+                printATeam(list,i);
+                option=showMenuGetOption("\nSeleccione el campo a modificar:\n\n1) Nombre.\n2) Localidad.\n3) Cancelar.\n\n",1,3);
+                switch(option)
+                {
+                case 1:
+                    system("cls");
+                    getAlphanumericalString("Ingrese el nuevo nombre: ",auxName,50);
+                    option=3;
+                    if(getConfirm()==1)
+                    {
+                        strcpy(list[i].name,auxName);
+                        system("cls");
+                        printf("\nEl nombre ha sido modificado. Se muestran los datos actuales.\n");
+                        printTeamTab();
+                        printATeam(list,i);
+                        system("pause");
+                    }else
+                    {
+                        showMessage("Se cancelo la modificacion.\n");
+                    }
+                    break;
+                case 2:
+                    system("cls");
+                    getAlphabeticalString("Ingrese la nueva localidad: ",auxLocality,32);
+                    option=3;
+                    if(getConfirm()==1)
+                    {
+                        strcpy(list[i].locality,auxLocality);
+                        system("cls");
+                        printf("\nLa localidad ha sido modificada. Se muestran los datos actuales.\n");
+                        printTeamTab();
+                        printATeam(list,i);
+                        system("pause");
+                    }else
+                    {
+                        showMessage("Se cancelo la modificacion.\n");
+                    }
+                    break;
+                case 3:
+                    break;
+                }
+                break;
+            }
         }
-    }
-    if(ret==0)
+    }else
     {
-        showMessage("El codigo de equipo ingresado no existe.\n");
+        showMessage("No hay ningun equipo cargado.\n");
     }
-    return ret;
 }
+
+void deleteTeam(sTeam* list,int len)
+{
+    int i;
+    int id;
+    int e;
+
+    if(checkAllTeamsEmpty(list,len)==0)
+    {
+        do
+        {
+            id=getIntMinMax("Ingrese el codigo del equipo a dar de baja: ",1,len);
+            e=checkTeamExistence(list,len,id);
+        }while(e==0);
+
+        for (i=0;i<len;i++)
+        {
+            if(list[i].code==id)
+            {
+                printf("Esta a punto de eliminar el siguiente equipo:\n\n");
+                printTeamTab();
+                printATeam(list,i);
+                if(getConfirm()==1)
+                {
+                    list[i].isEmpty=1;
+                    showMessage("El equipo se dio de baja con exito.\n");
+                }else
+                {
+                    showMessage("Se cancelo la baja.\n");
+                }
+                break;
+            }
+        }
+    }else
+    {
+        showMessage("No hay ningun equipo cargado.\n");
+    }
+}
+
 
 

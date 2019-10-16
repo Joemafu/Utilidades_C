@@ -3,6 +3,12 @@
 #include <string.h>
 #include <conio.h>
 
+typedef struct
+{
+    int dia;
+    int mes;
+    int anio;
+}eFecha;
 
 struct
 {
@@ -12,6 +18,7 @@ struct
     float salary;
     int sector;
     int isEmpty;
+    eFecha birthday;
 
 } typedef sStruct;
 

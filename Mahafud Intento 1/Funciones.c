@@ -1,5 +1,3 @@
-/*
-
 #include "Funciones.h"
 
 int addElement(sStruct* list, int len, int id)
@@ -384,9 +382,9 @@ void hardcodePropietarios (sStruct* list)
     {
         list[i].id=id[i];
         strcpy(list[i].name,name[i]);
-        list[i].fechaNac.dia=dia[i];
-        list[i].fechaNac.mes=mes[i];
-        list[i].fechaNac.anio=anio[i];
+        list[i].birthday.dia=dia[i];
+        list[i].birthday.mes=mes[i];
+        list[i].birthday.anio=anio[i];
         list[i].isEmpty=0;
     }
     return;
@@ -560,12 +558,12 @@ void showMessage(char message[])
 }
 
 
-void sortAndPrint(sStruct* list, int len, int order)
-{
-    sortElementsByStringAndInt(list,len,order);
-    printElements(list,len);
-    return;
-}
+//void sortAndPrint(sStruct* list, int len, int order)
+//{
+//    sortElementsByStringAndInt(list,len,order);
+//    printElements(list,len);
+//    return;
+//}
 
 
 int sortElementsByIntStringAndString(sStruct* list, int len, int order)
@@ -630,61 +628,4 @@ int sortElementsByIntStringAndString(sStruct* list, int len, int order)
     }
     return ret;
 }
-
-
-int sortElementsByStringAndInt(sStruct* list, int len, int order)
-{
-    int i;
-    int j;
-    int ret=-1;
-    sStruct aux[1];
-
-    if(list!=NULL||len<0||order<0||order>1)
-    {
-        for(i=0; i<len-1; i++)
-        {
-            for(j=1; j<len; j++)
-            {
-                switch(order)
-                {
-                ///DESCENDENTE:
-                case 0:
-                    if (stricmp(list[i].name,list[j].name)>0)
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-                    if((stricmp(list[i].name,list[j].name)==0) && (list[i].fechaNac.anio>list[j].fechaNac.anio))
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-                    break;
-                ///ASCENDENTE:
-                case 1:
-                    if (stricmp(list[i].name,list[j].name)<0)
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-                    if((stricmp(list[i].name,list[j].name)==0) && (list[i].fechaNac.anio<list[j].fechaNac.anio))
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-                    break;
-                }
-            }
-        }
-        ret=0;
-    }
-    return ret;
-}
-
-
-*/
 

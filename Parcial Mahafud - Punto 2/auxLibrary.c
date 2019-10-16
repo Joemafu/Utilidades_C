@@ -189,6 +189,7 @@ int getAlphanumericalString (char message[],char string[],int maxLen)
 int getConfirm()
 {
     int ret=-1;
+    printf("Desea confirmar? s/n.\n");
     do
     {
         ret=getche();
@@ -203,7 +204,7 @@ int getConfirm()
         }
         else
         {
-            printf("\n\nIngrese s para confirmar, n para cancelar.\n");
+            printf("\n\nPresione s para confirmar, n para cancelar: \n");
         }
     }
     while(ret!=0&&ret!=1);

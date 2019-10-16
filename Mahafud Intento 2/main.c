@@ -5,9 +5,9 @@
 int main()
 {
 
-    int idEquipo;
+    int idEquipo=1;
     int option;
-    eEquipo equipo;
+    eEquipo equipo[5];
     initElements(equipo,EQUIPOS);
     do{
         option=showMenuGetOption("1)Alta equipo.\n2)lista equipos.\n",1,8);

@@ -35,7 +35,7 @@ int addEquipo(eEquipos*, int len, int id);
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 *
 */
-int initEquipos(eEquipos*, int len);
+int initEquipos(eEquipos* list, int len);
 
 /** \brief Sort the elements by a string value and matching strings by a secondary int value.
  *

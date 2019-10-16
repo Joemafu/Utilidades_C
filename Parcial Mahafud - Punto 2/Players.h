@@ -1,4 +1,5 @@
 #include "Functions.h"
+#include "Teams.h"
 
 #ifndef DATE_H
 #define DATE_H
@@ -106,3 +107,32 @@ int initPlayers(sPlayer* list, int len);
  */
 void hardcodePlayers (sPlayer* list);
 
+/** \brief Goes over all the array checking if isEmpty==1. In case of true in EVERY element, returns 1. If not, returns 0.
+ *
+ * \param Struct* Array.
+ * \param int Number of indexes.
+ * \return Returns 1 if it's all empty, 0 if not.
+ *
+ */
+int checkAllPlayersEmpty (sPlayer* list, int len);
+
+/** \brief Deletes an element from an array.
+ *
+ * \param list sTeam* Array to delete an element from.
+ * \param len int Length of the array.
+ * \return void
+ *
+ */
+void deletePlayer(sPlayer* list,int len);
+
+
+/** \brief Prints all players by their team
+ *
+ * \param player sPlayer* Array players
+ * \param team sTeam* Array teams
+ * \param lenP int Length of array players
+ * \param lenT int Length of array teams
+ * \return void
+ *
+ */
+void printAllPlayersByTeam(sPlayer* player,sTeam* team,int lenP,int lenT);

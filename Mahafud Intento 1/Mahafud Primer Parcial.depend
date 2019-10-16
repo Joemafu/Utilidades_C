@@ -82,3 +82,47 @@
 1570714123 source:c:\users\joelcck\desktop\a\mahafud primer parcial\funciones.c
 	"Funciones.h"
 
+1570711609 source:c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\ejugadores.c
+	"eJugadores.h"
+
+1570714134 c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\ejugadores.h
+	<stdio.h>
+	<stdlib.h>
+
+1570711609 source:c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\epartido.c
+	"ePartido.h"
+
+1570714184 c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\epartido.h
+	<stdio.h>
+	<stdlib.h>
+
+1570711609 source:c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\ereferis.c
+	"eReferis.h"
+
+1570714178 c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\ereferis.h
+	<stdio.h>
+	<stdlib.h>
+
+1570714123 source:c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\funciones.c
+	"Funciones.h"
+
+1571130654 c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571129729 source:c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\eequipos.c
+	"eEquipos.h"
+
+1571129792 c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\eequipos.h
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+
+1571130476 source:c:\users\joel\google drive\workspace\utilidades_parcial\mahafud intento 1\main.c
+	"eEquipos.h"
+	"eJugadores.h"
+	"eReferis.h"
+	"ePartido.h"
+

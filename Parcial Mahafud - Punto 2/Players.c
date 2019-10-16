@@ -31,7 +31,6 @@ int addPlayer(sPlayer* list,sTeam* teamList, int lenP,int lenT, int id)
                 list[i].birthDate.day=getDay("Dia: ",list[i].birthDate.year,list[i].birthDate.month);
                 strcpy(list[i].lastName, lastName);
                 strcpy(list[i].name, name);
-                printf("Confirmar? (s/n): \n");
                 if(getConfirm()==1)
                 {
                     list[i].isEmpty = 0;
@@ -120,17 +119,24 @@ void printPlayerTab ()
     return;
 }
 
-int printPlayers(sPlayer* list, int length)
+int printPlayers(sPlayer* list, int len)
 {
     int i;
     system("cls");
-    printPlayerTab();
-    for(i=0; i<length; i++)
+    if(checkAllPlayersEmpty(list,len)==0)
     {
-        printAPlayer(list, i);
+        printPlayerTab();
+        for(i=0; i<len; i++)
+        {
+            printAPlayer(list, i);
+        }
+        system("pause");
+        system("cls");
+    }else
+    {
+        showMessage("No hay jugadores cargados.\n");
     }
-    system("pause");
-    system("cls");
+
     return 0;
 }
 
@@ -194,3 +200,65 @@ void hardcodePlayers (sPlayer* list)
     return;
 }
 
+void deletePlayer(sPlayer* list,int len)
+{
+    int i;
+    int id;
+    int e=0;
+
+    if(checkAllPlayersEmpty(list,len)==0)
+    {
+        do
+        {
+            id=getIntMinMax("Ingrese el codigo del jugador a dar de baja: ",1,len);
+//            e=checkPlayerExistence(list,len,id);
+        }while(e==0);
+
+        for (i=0;i<len;i++)
+        {
+            if(list[i].code==id)
+            {
+                printf("Esta a punto de eliminar el siguiente jugador:\n\n");
+                printPlayerTab();
+                printAPlayer(list,i);
+                if(getConfirm()==1)
+                {
+                    list[i].isEmpty=1;
+                    showMessage("El jugador se dio de baja con exito.\n");
+                }else
+                {
+                    showMessage("Se cancelo la baja.\n");
+                }
+                break;
+            }
+        }
+    }else
+    {
+        showMessage("No hay ningun jugador cargado.\n");
+    }
+}
+
+void printAllPlayersByTeam(sPlayer* player,sTeam* team,int lenP,int lenT)
+{
+    int i;
+    int j;
+
+    for(i=0;i<lenT;i++)
+    {
+        if(team[i].isEmpty==0)
+        {
+            printSeparation();
+            printTeamTab();
+            printATeam(team,i);
+            printf("\n\n");
+            printPlayerTab();
+            for(j=0;j<lenP;j++)
+            {
+                if(player[j].isEmpty==0&&player[j].teamCode==team[i].code)
+                {
+                    printAPlayer(player,j);
+                }
+            }
+        }
+    }
+}

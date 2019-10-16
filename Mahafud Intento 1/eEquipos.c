@@ -26,8 +26,7 @@ int addEquipo(eEquipos* list, int len, int id)
     return ret;
 }
 
-int initEquipos(eEquipos list, int len)
-
+int initEquipos(eEquipos* list, int len)
 {
     int i;
     int ret;

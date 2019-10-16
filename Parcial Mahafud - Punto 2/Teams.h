@@ -82,3 +82,31 @@ int printATeam (sTeam* list, int i);
  */
 void hardcodeTeams (sTeam* list);
 
+/** \brief Allows to modify any value but code of an element of an sTeam array.
+ *
+ * \param list sTeam* Array that contains the element to modify.
+ * \param len int Length of the array.
+ * \return void
+ *
+ */
+void modifyTeam(sTeam* list,int len);
+
+/** \brief Deletes an element from an array.
+ *
+ * \param list sTeam* Array to delete an element from.
+ * \param len int Length of the array.
+ * \return void
+ *
+ */
+void deleteTeam(sTeam* list,int len);
+
+/** \brief Goes over all the array checking if isEmpty==1. In case of true in EVERY element, returns 1. If not, returns 0.
+ *
+ * \param Struct* Array.
+ * \param int Number of indexes.
+ * \return Returns 1 if it's all empty, 0 if not.
+ *
+ */
+int checkAllTeamsEmpty (sTeam* list, int len);
+
+
