@@ -20,6 +20,7 @@ typedef struct
     int code;
     char name[51];
     char locality[33];
+    float averageAge;
     int isEmpty;
 }sTeam;
 #endif // TEAMS_H
@@ -50,43 +51,43 @@ typedef struct
 * \return int Return (-1) if Error [Invalid length or NULL pointer or without free space] - (0) if Ok
 *
 */
-int addPlayer(sPlayer* list,sTeam* teamList, int lenP,int lenT, int id);
+void addPlayer(sPlayer* list,sTeam* teamList, int lenP,int lenT, int* id);
 
-/** \brief Sort the elements by a string value and matching strings by a secondary int value.
- *
- * \param list sStruct* Struct to sort.
- * \param len int Number of indexes.
- * \param order int 1 for ascendant order, 0 for descendant.
- * \return int -1 if wrong parameters received.
- *
- */
-int sortPlayersByStringAndInt(sPlayer* list, int len, int order);
-
-/** \brief Prints a categories tab of the Elements using the same order than the function printAnElement.
- *
- * \return Void.
- *
- */
-void printTab ();
-
-/** \brief print the content of Elements array
-*
-* \param list sStruct*
-* \param length int
-* \return int
-*
-*/
-int printPlayers(sPlayer* list, int length);
-
-/** \brief Prints an Element's data by index number.
+/** \brief Goes over all the array checking if isEmpty==1. In case of true in EVERY element, returns 1. If not, returns 0.
  *
  * \param Struct* Array.
- * \param Number of index of the element to print.
- * \return Returns -1 when the index is not found or it is associated to an isEmpty (erased) element.
- *         in case of success, returns the index.
+ * \param int Number of indexes.
+ * \return Returns 1 if it's all empty, 0 if not.
  *
  */
-int printAPlayer (sPlayer* list, int i);
+int checkAllPlayersEmpty (sPlayer* list, int len);
+
+/** \brief Checks the existence of an element by its ID.
+ *
+ * \param Structure to search on.
+ * \param Lenght of the structure.
+ * \param ID of the element to search for.
+ * \return Returns 1 if the element does exist or 0 if it does not.
+ *
+ */
+int checkPlayerExistence(sPlayer* list,int len,int id);
+
+/** \brief Deletes an element from an array.
+ *
+ * \param list sTeam* Array to delete an element from.
+ * \param len int Length of the array.
+ * \return void
+ *
+ */
+void deletePlayer(sPlayer* list,int len);
+
+/** \brief Function with testing purpose only.
+ *
+ * \param Struct *Array.
+ * \return Void
+ *
+ */
+void hardcodePlayers (sPlayer* list);
 
 /** \brief To indicate that all position in the array are empty,
 *          this function put the flag (isEmpty) in TRUE in all
@@ -99,33 +100,6 @@ int printAPlayer (sPlayer* list, int i);
 */
 int initPlayers(sPlayer* list, int len);
 
-/** \brief Function with testing purpose only.
- *
- * \param Struct *Array.
- * \return Void
- *
- */
-void hardcodePlayers (sPlayer* list);
-
-/** \brief Goes over all the array checking if isEmpty==1. In case of true in EVERY element, returns 1. If not, returns 0.
- *
- * \param Struct* Array.
- * \param int Number of indexes.
- * \return Returns 1 if it's all empty, 0 if not.
- *
- */
-int checkAllPlayersEmpty (sPlayer* list, int len);
-
-/** \brief Deletes an element from an array.
- *
- * \param list sTeam* Array to delete an element from.
- * \param len int Length of the array.
- * \return void
- *
- */
-void deletePlayer(sPlayer* list,int len);
-
-
 /** \brief Prints all players by their team
  *
  * \param player sPlayer* Array players
@@ -137,6 +111,40 @@ void deletePlayer(sPlayer* list,int len);
  */
 void printAllPlayersByTeam(sPlayer* player,sTeam* team,int lenP,int lenT);
 
+/** \brief Prints an Element's data by index number.
+ *
+ * \param Struct* Array.
+ * \param Number of index of the element to print.
+ * \return Returns -1 when the index is not found or it is associated to an isEmpty (erased) element.
+ *         in case of success, returns the index.
+ *
+ */
+int printAPlayer (sPlayer* list, int i);
+
+/** \brief Prints the content of Elements array
+*
+* \param list sStruct*
+* \param length int
+* \return int
+*
+*/
+int printPlayers(sPlayer* list, int length);
+
+/** \brief Prints the content of Elements array sorted by last name and name.
+*
+* \param list sStruct*
+* \param length int
+* \return int
+*
+*/
+int printPlayersByLastNameAndName(sPlayer* list, int len);
+
+/** \brief Prints a categories tab of the Elements using the same order than the function printAnElement.
+ *
+ * \return Void.
+ *
+ */
+void printPlayerTab ();
 
 /** \brief Searches for a player in the array by comparing his name value. Then prints every result with their
  *         respective team.
@@ -149,3 +157,13 @@ void printAllPlayersByTeam(sPlayer* player,sTeam* team,int lenP,int lenT);
  *
  */
 void searchPlayerByName(sPlayer* player,sTeam* team,int lenP,int lenT);
+
+/** \brief Sort the elements by a string value and matching strings by a secondary int value.
+ *
+ * \param list sStruct* Struct to sort.
+ * \param len int Number of indexes.
+ * \param order int 1 for ascendant order, 0 for descendant.
+ * \return int -1 if wrong parameters received.
+ *
+ */
+int sortPlayersByLastNameAndName(sPlayer* list, int len, int order);

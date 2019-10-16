@@ -42,25 +42,6 @@ typedef struct
 }sMatch;
 #endif // MATCHES_H
 
-/** \brief To indicate that all position in the array are empty,
-*          this function put the flag (isEmpty) in TRUE in all
-*          position of the array.
-*
-* \param list sStruct* Pointer to array of Elements
-* \param len int Array length
-* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
-*
-*/
-int initReferees(sReferee* list, int len);
-
-/** \brief Function with testing purpose only.
- *
- * \param Struct *Array.
- * \return Void
- *
- */
-void hardcodeReferees (sReferee* list);
-
 /**\brief add in an existing list of Elements the values received as parameters
 *         in the first empty position.
 *
@@ -74,7 +55,45 @@ void hardcodeReferees (sReferee* list);
 * \return int Return (-1) if Error [Invalid length or NULL pointer or without free space] - (0) if Ok
 *
 */
-int addReferee(sReferee* list, int len, int id);
+void addReferee(sReferee* list, int len, int* id);
+
+/** \brief Goes over all the array checking if isEmpty==1. In case of true in EVERY element, returns 1. If not, returns 0.
+ *
+ * \param Struct* Array.
+ * \param int Number of indexes.
+ * \return Returns 1 if it's all empty, 0 if not.
+ *
+ */
+int checkAllRefereesEmpty (sReferee* list, int len);
+
+/** \brief Checks the existence of an element by its ID.
+ *
+ * \param Structure to search on.
+ * \param Lenght of the structure.
+ * \param ID of the element to search for.
+ * \return Returns 1 if the element does exist or 0 if it does not.
+ *
+ */
+int checkRefereeExistence (sReferee* list,int len,int id);
+
+/** \brief Function with testing purpose only.
+ *
+ * \param Struct *Array.
+ * \return Void
+ *
+ */
+void hardcodeReferees (sReferee* list);
+
+/** \brief To indicate that all position in the array are empty,
+*          this function put the flag (isEmpty) in TRUE in all
+*          position of the array.
+*
+* \param list sStruct* Pointer to array of Elements
+* \param len int Array length
+* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+*
+*/
+int initReferees(sReferee* list, int len);
 
 /** \brief Searches for the most experienced referee and prints his/her last name, name and de amount of matches directed.
  *

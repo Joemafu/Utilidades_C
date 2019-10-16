@@ -22,6 +22,7 @@ typedef struct
     int code;
     char name[51];
     char locality[33];
+    float averageAge;
     int isEmpty;
 }sTeam;
 #endif // TEAMS_H
@@ -71,27 +72,6 @@ typedef struct
 }sPlayer;
 #endif // PLAYERS_H
 
-/** \brief Gets an options menu as a string, minimal and maximal valid option, prints the menu and gets
- *         selected option by scanf. Validate than the option is between the values provided by \param
- *         and returns it as an int.
- *
- * \param char[] Message to print as a menu (it must include an enumerated options list).
- * \param int Minimal option accepted.
- * \param int Maximal option accepted.
- * \return int Returns -1 in error case (non valid option) - Or the option number selected in case of success.
- *
- *
- */
-int showMenuGetOption(char[],int,int);
-
-/** \brief Cleans the screen and prints a message followed by a pause. Then cleans the screen again.
- *
- * \param char[] Message to print.
- * \return Void.
- *
- */
-void showMessage(char[]);
-
 /** \brief Prints a message that receives by para, expects a string, upper and lower cases, spaces and apostrophes
  *         admitted. Validates and in case of success it gets associated to the string provided by param and returns 1.
  *
@@ -114,41 +94,26 @@ void getAlphabeticalString (char[], char[],int);
  */
 int getAlphanumericalString (char message[],char string[],int maxLen);
 
-/** \brief Prints a message and expects for an email-formatted string. Validates and saves the string in the param string.
+/** \brief Gets an options menu as a string, minimal and maximal valid option, prints the menu and gets
+ *         selected option by scanf. Validate than the option is between the values provided by \param
+ *         and returns it as an int.
  *
- * \param Message to print.
- * \param String to save the email on.
- * \return Returns 1 for success.
+ * \param char[] Message to print as a menu (it must include an enumerated options list).
+ * \param int Minimal option accepted.
+ * \param int Maximal option accepted.
+ * \return int Returns -1 in error case (non valid option) - Or the option number selected in case of success.
+ *
  *
  */
-int getEmail (char message[],char string[],int maxLen);
+int showMenuGetOption(char[],int,int);
 
-/** \brief Expects f/m. Validates (Admits upper and lower case) and returns F for 'f' y M for 'm'.
+/** \brief Cleans the screen and prints a message followed by a pause. Then cleans the screen again.
  *
- * \return int Returns F for 'f' and M for 'm'.
- *
- */
-char getSex();
-
-/** \brief Prints a message that receives from param, asks for a string of chars that only accepts numbers,
- *         validates, casts the string into an int and returns it (Only positive values admitted).
- *
- * \param char[] message to print, asking for the int.
- * \return int Returns the numeric string entered by the user as an int value.
+ * \param char[] Message to print.
+ * \return Void.
  *
  */
-int getPositiveInt(char[]);
-
-/** \brief Prints a message that receives from param, asks for a string of chars that only accepts numbers,
- *         validates, casts the string into an int and returns it (Positive and negative values admitted).
- *
- * \param message[] char message to print, asking for the int.
- * \param int Min number accepted.
- * \param int Max number accepted.
- * \return int
- *
- */
-int getIntMinMax(char message[],int,int);
+void showMessage(char[]);
 
 /** \brief Expects s/n. Validates (Admits upper and lower case) and returns 1 for 's' y 0 for 'n'.
  *
@@ -168,45 +133,41 @@ int getConfirm();
  */
 int getDay (char message[],int year, int month);
 
-
-
-/** \brief Checks the existence of an element by its ID.
+/** \brief Prints a message and expects for an email-formatted string. Validates and saves the string in the param string.
  *
- * \param Structure to search on.
- * \param Lenght of the structure.
- * \param ID of the element to search for.
- * \return Returns 1 if the element does exist or 0 if it does not.
+ * \param Message to print.
+ * \param String to save the email on.
+ * \return Returns 1 for success.
  *
  */
-int checkTeamExistence (sTeam* list,int len,int id);
+int getEmail (char message[],char string[],int maxLen);
 
-/** \brief Checks the existence of an element by its ID.
+/** \brief Prints a message that receives from param, asks for a string of chars that only accepts numbers,
+ *         validates, casts the string into an int and returns it (Positive and negative values admitted).
  *
- * \param Structure to search on.
- * \param Lenght of the structure.
- * \param ID of the element to search for.
- * \return Returns 1 if the element does exist or 0 if it does not.
+ * \param message[] char message to print, asking for the int.
+ * \param int Min number accepted.
+ * \param int Max number accepted.
+ * \return int
  *
  */
-int checkRefereeExistence (sReferee* list,int len,int id);
+int getIntMinMax(char message[],int,int);
 
-/** \brief Goes over all the array checking if there is at least two elements with isEmpty==0. In case of true, returns 1. If not, returns 0.
+/** \brief Prints a message that receives from param, asks for a string of chars that only accepts numbers,
+ *         validates, casts the string into an int and returns it (Only positive values admitted).
  *
- * \param Struct* Array.
- * \param int Number of indexes.
- * \return Returns 1 if there is at least 2 not-empty elements, 0 if not.
+ * \param char[] message to print, asking for the int.
+ * \return int Returns the numeric string entered by the user as an int value.
  *
  */
-int checkALeastTwoTeams (sTeam* list, int len);
+int getPositiveInt(char[]);
 
-/** \brief Goes over all the array checking if isEmpty==1. In case of true in EVERY element, returns 1. If not, returns 0.
+/** \brief Expects f/m. Validates (Admits upper and lower case) and returns F for 'f' y M for 'm'.
  *
- * \param Struct* Array.
- * \param int Number of indexes.
- * \return Returns 1 if it's all empty, 0 if not.
+ * \return int Returns F for 'f' and M for 'm'.
  *
  */
-int checkAllRefereesEmpty (sReferee* list, int len);
+char getSex();
 
 /** \brief Prints a separation mark.
  *

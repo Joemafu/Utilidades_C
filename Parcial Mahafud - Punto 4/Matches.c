@@ -1,21 +1,97 @@
 #include "Matches.h"
 
-int initMatches(sMatch* list, int len)
+void addMatch(sMatch* matchList,sTeam* teamList,sReferee* refereeList, int lenM,int lenT,int lenR, int* id)
 {
     int i;
-    int ret;
-    if(list!=NULL && len>0)
+    int r;
+    int end=0;
+    int givenConditions=0;
+
+    if(checkAllRefereesEmpty(refereeList,lenR)==0)
     {
-        for (i=0; i<len; i++)
-        {
-            list[i].isEmpty=1;
-        }
-        ret=0;
+        givenConditions++;
     }
-    else
+    if(checkAtLeastTwoTeams(teamList,lenT)==1)
     {
-        showMessage("Fallo la inicialización.\n");
-        ret=-1;
+        givenConditions++;
+    }
+    if(givenConditions==2)
+    {
+        if(matchList!=NULL && lenM>0)
+        {
+            for(i=0; i<lenM; i++)
+            {
+                if(matchList[i].isEmpty==1)
+                {
+                    matchList[i].code=*id;
+                    do
+                    {
+                        matchList[i].visitorCode=getIntMinMax("Codigo de equipo visitante: ",1,TEAMS);
+                        r=checkTeamExistence(teamList,lenT,matchList[i].visitorCode);
+                    }while(r==0);
+                    do
+                    {
+                        matchList[i].localCode=getIntMinMax("Codigo de equipo local: ",1,TEAMS);
+                        r=checkTeamExistence(teamList,lenT,matchList[i].localCode);
+                        if(matchList[i].localCode==matchList[i].visitorCode)
+                        {
+                            showMessage("El equipo local no puede ser el mismo que el visitante.\n");
+                            r=0;
+                        }
+                    }while(r==0);
+                    do
+                    {
+                        matchList[i].refereeCode=getIntMinMax("Codigo de referi: ",1,TEAMS);
+                        r=checkRefereeExistence(refereeList,lenR,matchList[i].refereeCode);
+                    }while(r==0);
+
+                    matchList[i].date.year=getIntMinMax("Anio: ",1900,2050);
+                    matchList[i].date.month=getIntMinMax("Mes: ",1,12);
+                    matchList[i].date.day=getDay("Dia: ",matchList[i].date.year,matchList[i].date.month);
+                    if(getConfirm()==1)
+                    {
+                        matchList[i].isEmpty = 0;
+                        showMessage("Partido cargado con exito.\n\n");
+                        *id=*id+1;
+                        end=1;
+                    }
+                    else
+                    {
+                        showMessage("Se cancelo la carga.\n\n");
+                        end=1;
+                    }
+                    break;
+                }
+            }
+            if(end==0)
+            {
+                showMessage("No es posible cargar el partido. Espacio insuficiente.\n\n");
+                end=1;
+            }
+        }
+    }else
+    {
+        showMessage("No se puede cargar el partido, arbitro o equipos insuficientes.\n");
+        end=1;
+    }
+    if (end==0)
+    {
+        showMessage("Hubo un error al cargar el partido, verifique e intente nuevamente.");
+        end=1;
+    }
+}
+
+int checkAllMatchesEmpty (sMatch* list, int len)
+{
+    int i;
+    int ret=1;
+    for (i=0; i<len; i++)
+    {
+        if(list[i].isEmpty==0)
+        {
+            ret=0;
+            break;
+        }
     }
     return ret;
 }
@@ -45,80 +121,149 @@ void hardcodeMatches (sMatch* list)
     return;
 }
 
-int addMatch(sMatch* matchList,sTeam* teamList,sReferee* refereeList, int lenM,int lenT,int lenR, int id)
+int initMatches(sMatch* list, int len)
 {
     int i;
-    int r;
-    int ret=-1;
-    int givenConditions=0;
-
-
-    if(checkAllRefereesEmpty(refereeList,lenR)==0)
+    int ret;
+    if(list!=NULL && len>0)
     {
-        givenConditions++;
-    }
-    if(checkALeastTwoTeams(teamList,lenT)==1)
-    {
-        givenConditions++;
-    }
-    if(givenConditions==2)
-    {
-        if(matchList!=NULL && lenM>0)
+        for (i=0; i<len; i++)
         {
-            for(i=0; i<lenM; i++)
-            {
-                if(matchList[i].isEmpty==1)
-                {
-                    matchList[i].code=id;
-                    do
-                    {
-                        matchList[i].visitorCode=getIntMinMax("Codigo de equipo visitante: ",1,TEAMS);
-                        r=checkTeamExistence(teamList,lenT,matchList[i].visitorCode);
-                    }while(r==0);
-                    do
-                    {
-                        matchList[i].localCode=getIntMinMax("Codigo de equipo local: ",1,TEAMS);
-                        r=checkTeamExistence(teamList,lenT,matchList[i].localCode);
-                        if(matchList[i].localCode==matchList[i].visitorCode)
-                        {
-                            showMessage("El equipo local no puede ser el mismo que el visitante.\n");
-                            r=0;
-                        }
-                    }while(r==0);
-                    do
-                    {
-                        matchList[i].refereeCode=getIntMinMax("Codigo de referi: ",1,TEAMS);
-                        r=checkRefereeExistence(refereeList,lenR,matchList[i].refereeCode);
-                    }while(r==0);
-
-                    matchList[i].date.year=getIntMinMax("Anio: ",1900,2050);
-                    matchList[i].date.month=getIntMinMax("Mes: ",1,12);
-                    matchList[i].date.day=getDay("Dia: ",matchList[i].date.year,matchList[i].date.month);
-                    if(getConfirm()==1)
-                    {
-                        matchList[i].isEmpty = 0;
-                        ret=0;
-                    }
-                    else
-                    {
-                        showMessage("Se cancelo la carga.\n\n");
-                        ret=1;
-                    }
-                    break;
-                }
-            }
-            if(ret==-1)
-            {
-                showMessage("No es posible cargar el partido. Espacio insuficiente.\n\n");
-                ret=1;
-            }
+            list[i].isEmpty=1;
         }
+        ret=0;
+    }
+    else
+    {
+        showMessage("Fallo la inicialización.\n");
+        ret=-1;
+    }
+    return ret;
+}
+
+int printAllMatches(sMatch* match,sTeam* team,sReferee* referee, int lenM,int lenT,int lenR)
+{
+    int i;
+    system("cls");
+    if(checkAllMatchesEmpty(match,lenM)==0)
+    {
+        printMatchTab();
+        for(i=0; i<lenM; i++)
+        {
+            printAMatch(match,team,referee,i,lenT,lenR);
+        }
+        system("pause");
+        system("cls");
     }else
     {
-        showMessage("No se puede cargar el partido, arbitro o equipos insuficientes.\n");
+        showMessage("No hay partidos cargados.\n");
     }
 
-    return ret;
+    return 0;
+}
+
+int printAllMatchesByDate(sMatch* match,sTeam* team,sReferee* referee, int lenM,int lenT,int lenR)
+{
+    int i;
+    system("cls");
+    if(checkAllMatchesEmpty(match,lenM)==0)
+    {
+        sortMatchesByDate(match,lenM,1);
+        printMatchTab();
+        for(i=0; i<lenM; i++)
+        {
+            printAMatch(match,team,referee,i,lenT,lenR);
+        }
+        system("pause");
+        system("cls");
+    }else
+    {
+        showMessage("No hay partidos cargados.\n");
+    }
+
+    return 0;
+}
+
+void printAMatch (sMatch* match,sTeam* team,sReferee* referee, int i,int lenT,int lenR)
+{
+    int j;
+    if (match[i].isEmpty==0)
+    {
+        printf("    %04d",match[i].code);
+        for(j=0;j<lenT;j++)
+        {
+            if(team[j].isEmpty==0&&match[i].localCode==team[j].code)
+            {
+                printf("  %18s\t",team[j].name);
+                break;
+            }
+        }
+        for(j=0;j<lenT;j++)
+        {
+            if(team[j].isEmpty==0&&match[i].visitorCode==team[j].code)
+            {
+                printf("  %18s\t",team[j].name);
+                break;
+            }
+        }
+        for(j=0;j<lenR;j++)
+        {
+            if(referee[j].isEmpty==0&&match[i].refereeCode==referee[j].code)
+            {
+                printf("  %18s %4s\t",referee[j].lastName,referee[j].name);
+                printf("  %02d/%02d/%d\n",match[i].date.day,match[i].date.month,match[i].date.year);
+                break;
+            }
+        }
+    }
+}
+
+void printMatchesByDate(sMatch* match,sTeam* team,sReferee* referee,int lenM,int lenT,int lenR)
+{
+    int i;
+    int flag=0;
+    sDate aux;
+    if(checkAllMatchesEmpty(match,lenM)==1)
+    {
+        showMessage("No hay partidos cargados.\n");
+    }
+    else
+    {
+        printf("Ingrese la fecha del partido a buscar: \n");
+        aux.year=getIntMinMax("Anio: ",1900,2050);
+        aux.month=getIntMinMax("Mes: ",1,12);
+        aux.day=getDay("Dia: ",aux.year,aux.month);
+
+        for(i=0;i<lenM;i++)
+        {
+            if(match[i].isEmpty==0&&match[i].date.year==aux.year&&match[i].date.month==aux.month&&match[i].date.day==aux.day)
+            {
+                if(flag==0)
+                {
+                    printf("\nSe listan los resultados:\n\n");
+                    flag=1;
+                }
+                printTeamNameByCode(team,lenT,match[i].localCode);
+                printf(" VS. ");
+                printTeamNameByCode(team,lenT,match[i].visitorCode);
+                printf(". Dirigido por ");
+                printRefereeNameByCode(referee,lenR,match[i].refereeCode);
+                printf(".\n\n");
+            }
+        }
+        if(flag==0)
+        {
+            printf("\nNo se jugaron partidos en la fecha indicada.\n");
+        }
+        system("pause");
+    }
+
+}
+
+void printMatchTab ()
+{
+    printf("COD. PARTIDO \t VISITANTE \t \t  LOCAL\t \t \t \tREFERI \t  \t FECHA\n\n");
+    return;
 }
 
 int sortMatchesByDate(sMatch* list, int len, int order)
@@ -183,82 +328,3 @@ int sortMatchesByDate(sMatch* list, int len, int order)
     }
     return ret;
 }
-
-int printAllMatches(sMatch* list, int len)
-{
-    int i;
-    system("cls");
-    if(checkAllMatchesEmpty(list,len)==0)
-    {
-        printMatchTab();
-        for(i=0; i<len; i++)
-        {
-            printAMatch(list, i);
-        }
-        system("pause");
-        system("cls");
-    }else
-    {
-        showMessage("No hay partidos cargados.\n");
-    }
-
-    return 0;
-}
-
-void printMatchTab ()
-{
-    char st[18]={"COD. PARTIDO"};
-    char str[18]={"COD. VISITANTE"};
-    char stri[18]={"COD. LOCAL"};
-    char strin[18]={"COD. REFERI"};
-    char string[18]={"FECHA"};
-    printf("%s\t%s\t%s\t%s\t%s\n\n",st,str,stri,strin,string);
-    return;
-}
-
-int printAMatch (sMatch* list, int i)
-{
-    int ret=-1;
-    if (list[i].isEmpty==0)
-    {
-        printf("%04d\t\t%04d\t%04d\t%04d\t%02d/%02d/%d\n",list[i].code,list[i].visitorCode,list[i].localCode,list[i].refereeCode,list[i].date.day,list[i].date.month,list[i].date.year);
-        ret=i;
-    }
-    return ret;
-}
-
-void printMatchesByDate(sMatch* match,sTeam* team,sReferee* referee,int lenM,int lenT,int lenR)
-{
-    int i;
-    int flag=0;
-    sDate aux;
-    printf("Ingrese la fecha del partido a buscar: \n");
-    aux.year=getIntMinMax("Anio: ",1900,2050);
-    aux.month=getIntMinMax("Mes: ",1,12);
-    aux.day=getDay("Dia: ",aux.year,aux.month);
-
-    for(i=0;i<lenM;i++)
-    {
-        if(match[i].isEmpty==0&&match[i].date.year==aux.year&&match[i].date.month==aux.month&&match[i].date.day==aux.day)
-        {
-            if(flag==0)
-            {
-                printf("\nSe listan los resultados:\n\n");
-                flag=1;
-            }
-            printTeamNameByCode(team,lenT,match[i].localCode);
-            printf(" VS. ");
-            printTeamNameByCode(team,lenT,match[i].visitorCode);
-            printf(". Dirigido por ");
-            printRefereeNameByCode(referee,lenR,match[i].refereeCode);
-            printf(".\n\n");
-        }
-    }
-    if(flag==0)
-    {
-        printf("\nNo se jugaron partidos en la fecha indicada.\n");
-    }
-    system("pause");
-}
-
-

@@ -1,21 +1,89 @@
 #include "Referees.h"
 
-int initReferees(sReferee* list, int len)
+void addReferee(sReferee* list, int len, int* id)
 {
     int i;
-    int ret;
+    int end=0;
+    char name[51];
+    char lastName[51];
+    char email[31];
+
     if(list!=NULL && len>0)
     {
-        for (i=0; i<len; i++)
+        for(i=0; i<len; i++)
         {
-            list[i].isEmpty=1;
+            if(list[i].isEmpty==1)
+            {
+                getAlphabeticalString("Apellido: ",lastName,30);
+                getAlphabeticalString("Nombre: ",name,30);
+                printf("Sexo (f/m): ");
+                list[i].sex=getSex();
+                list[i].code = *id;
+                list[i].birthDate.year=getIntMinMax("\nAnio de nacimiento: ",1960,2005);
+                list[i].birthDate.month=getIntMinMax("Mes: ",1,12);
+                list[i].birthDate.day=getDay("Dia: ",list[i].birthDate.year,list[i].birthDate.month);
+                getEmail("Ingrese correo electronico: ",email,30);
+                strcpy(list[i].email,email);
+                strcpy(list[i].lastName, lastName);
+                strcpy(list[i].name, name);
+                if(getConfirm()==1)
+                {
+                    list[i].isEmpty=0;
+                    showMessage("Referi cargado con exito.\n\n");
+                    *id=*id+1;
+                    end=1;
+                }
+                else
+                {
+                    showMessage("Se cancelo la carga.\n\n");
+                    end=1;
+                }
+                break;
+            }
         }
-        ret=0;
+        if(end==0)
+        {
+            showMessage("No es posible cargar al referi. Espacio insuficiente.\n\n");
+            end=1;
+        }
     }
-    else
+    if (end==0)
     {
-        showMessage("Fallo la inicializacion.\n");
-        ret=-1;
+        showMessage("Hubo un error al cargar el referi, verifique e intente nuevamente.");
+        end=1;
+    }
+}
+
+int checkAllRefereesEmpty (sReferee* list, int len)
+{
+    int i;
+    int ret=1;
+    for (i=0; i<len; i++)
+    {
+        if(list[i].isEmpty==0)
+        {
+            ret=0;
+            break;
+        }
+    }
+    return ret;
+}
+
+int checkRefereeExistence(sReferee* list,int len,int id)
+{
+    int i;
+    int ret=0;
+
+    for(i=0;i<len;i++)
+    {
+        if((id==list[i].code)&&(list[i].isEmpty==0))
+        {
+            ret=1;
+        }
+    }
+    if(ret==0)
+    {
+        showMessage("El codigo de referi ingresado no existe.\n");
     }
     return ret;
 }
@@ -45,50 +113,22 @@ void hardcodeReferees (sReferee* list)
     return;
 }
 
-int addReferee(sReferee* list, int len, int id)
+int initReferees(sReferee* list, int len)
 {
     int i;
-    int ret=-1;
-    char name[51];
-    char lastName[51];
-    char email[31];
-
+    int ret;
     if(list!=NULL && len>0)
     {
-        for(i=0; i<len; i++)
+        for (i=0; i<len; i++)
         {
-            if(list[i].isEmpty==1)
-            {
-                getAlphabeticalString("Apellido: ",lastName,30);
-                getAlphabeticalString("Nombre: ",name,30);
-                printf("Sexo (f/m): ");
-                list[i].sex=getSex();
-                list[i].code = id;
-                list[i].birthDate.year=getIntMinMax("\nAnio de nacimiento: ",1960,2005);
-                list[i].birthDate.month=getIntMinMax("Mes: ",1,12);
-                list[i].birthDate.day=getDay("Dia: ",list[i].birthDate.year,list[i].birthDate.month);
-                getEmail("Ingrese correo electronico: ",email,30);
-                strcpy(list[i].email,email);
-                strcpy(list[i].lastName, lastName);
-                strcpy(list[i].name, name);
-                if(getConfirm()==1)
-                {
-                    list[i].isEmpty = 0;
-                    ret=0;
-                }
-                else
-                {
-                    showMessage("Se cancelo la carga.\n\n");
-                    ret=1;
-                }
-                break;
-            }
+            list[i].isEmpty=1;
         }
-        if(ret==-1)
-        {
-            showMessage("No es posible cargar al referi. Espacio insuficiente.\n\n");
-            ret=1;
-        }
+        ret=0;
+    }
+    else
+    {
+        showMessage("Fallo la inicializacion.\n");
+        ret=-1;
     }
     return ret;
 }
@@ -102,29 +142,36 @@ void printMostExperiencedReferee(sReferee* referee,sMatch* match,int lenR,int le
     int maxMatches;
     int maxIndex;
 
-    for(i=0;i<lenR;i++)
+    if(checkAllRefereesEmpty(referee,lenR)==1)
     {
-        counter=0;
-        if(referee[i].isEmpty==0)
-        {
-            for(j=0;j<lenM;j++)
-            {
-                if((match[j].isEmpty==0)&&(match[j].refereeCode==referee[i].code))
-                {
-                    counter++;
-                }
-            }
-            if(flag==0||counter>maxMatches)
-            {
-                maxIndex=i;
-                maxMatches=counter;
-                flag=1;
-            }
-
-        }
+        showMessage("No hay referis cargados.\n");
     }
-    printf("El referi que mas partidos dirigio es %s %s (%d partidos)\n",referee[maxIndex].lastName,referee[maxIndex].name,maxMatches);
-    system("pause");
+    else
+    {
+        for(i=0;i<lenR;i++)
+        {
+            counter=0;
+            if(referee[i].isEmpty==0)
+            {
+                for(j=0;j<lenM;j++)
+                {
+                    if((match[j].isEmpty==0)&&(match[j].refereeCode==referee[i].code))
+                    {
+                        counter++;
+                    }
+                }
+                if(flag==0||counter>maxMatches)
+                {
+                    maxIndex=i;
+                    maxMatches=counter;
+                    flag=1;
+                }
+
+            }
+        }
+        printf("El referi que mas partidos dirigio es %s %s (%d partidos)\n",referee[maxIndex].lastName,referee[maxIndex].name,maxMatches);
+        system("pause");
+    }
 }
 
 void printRefereeNameByCode (sReferee* list, int lenT, int code)
@@ -139,5 +186,3 @@ void printRefereeNameByCode (sReferee* list, int lenT, int code)
         }
     }
 }
-
-

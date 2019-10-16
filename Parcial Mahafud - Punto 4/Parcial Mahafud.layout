@@ -2,59 +2,108 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="Matches.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1121" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="7" />
+			<Collapse line="20" />
+			<Collapse line="29" />
+			<Collapse line="44" />
+		</Folding>
+	</File>
+	<File name="Matches.c" open="1" top="1" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6838" topLine="162" />
+		</Cursor>
+		<Folding>
+			<Collapse line="84" />
+			<Collapse line="99" />
+			<Collapse line="124" />
+		</Folding>
+	</File>
 	<File name="Referees.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2299" topLine="57" />
+			<Cursor1 position="1063" topLine="4" />
 		</Cursor>
-	</File>
-	<File name="Players.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5628" topLine="163" />
-		</Cursor>
+		<Folding>
+			<Collapse line="5" />
+			<Collapse line="18" />
+			<Collapse line="34" />
+			<Collapse line="44" />
+		</Folding>
 	</File>
 	<File name="Players.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3934" topLine="110" />
+			<Cursor1 position="1168" topLine="12" />
+		</Cursor>
+		<Folding>
+			<Collapse line="6" />
+			<Collapse line="18" />
+			<Collapse line="31" />
+			<Collapse line="55" />
+			<Collapse line="102" />
+			<Collapse line="113" />
+			<Collapse line="123" />
+			<Collapse line="132" />
+			<Collapse line="141" />
+			<Collapse line="148" />
+			<Collapse line="160" />
+		</Folding>
+	</File>
+	<File name="Players.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9211" topLine="178" />
 		</Cursor>
 	</File>
-	<File name="Referees.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3674" topLine="102" />
-		</Cursor>
-	</File>
-	<File name="Matches.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8409" topLine="223" />
-		</Cursor>
-	</File>
-	<File name="Matches.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3393" topLine="82" />
-		</Cursor>
-	</File>
-	<File name="Functions.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9575" topLine="399" />
-		</Cursor>
-	</File>
-	<File name="Functions.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4897" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4394" topLine="105" />
+			<Cursor1 position="2966" topLine="68" />
 		</Cursor>
 	</File>
 	<File name="Teams.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9889" topLine="337" />
+			<Cursor1 position="11118" topLine="385" />
+		</Cursor>
+		<Folding>
+			<Collapse line="49" />
+		</Folding>
+	</File>
+	<File name="Functions.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7571" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="3" />
+			<Collapse line="39" />
+		</Folding>
+	</File>
+	<File name="Functions.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2288" topLine="32" />
+		</Cursor>
+		<Folding>
+			<Collapse line="8" />
+			<Collapse line="20" />
+			<Collapse line="33" />
+			<Collapse line="49" />
+			<Collapse line="63" />
+		</Folding>
+	</File>
+	<File name="Referees.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1615" topLine="21" />
 		</Cursor>
 	</File>
 	<File name="Teams.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3615" topLine="104" />
+			<Cursor1 position="5351" topLine="131" />
 		</Cursor>
+		<Folding>
+			<Collapse line="6" />
+			<Collapse line="30" />
+			<Collapse line="39" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>
