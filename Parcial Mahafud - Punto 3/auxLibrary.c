@@ -1,4 +1,4 @@
-#include "ArrayEmployees.h"
+#include "auxLibrary.h"
 
 
 int addElement(sStruct* list, int len, int id)
@@ -678,6 +678,22 @@ int removeElement(sStruct* list, int len, int id)
     return ret;
 }
 
+int searchForLongestString (sStruct* list,int len)
+{
+    int i;
+    int iMax;
+    int flag=0;
+
+    for(i=0;i<len;i++)
+    {
+        if(flag==0||strlen(list[i].name)>strlen(list[iMax].name))
+        {
+            flag=1;
+            iMax=i;
+        }
+    }
+    return iMax;
+}
 
 int showMenuGetOption(char message[], int min, int max)
 {
@@ -833,29 +849,15 @@ int sortElementsByStringAndInt(sStruct* list, int len, int order)
     return ret;
 }
 
-int searchForLongestString (sStruct* list,int len)
-{
-    int i;
-    int iMax;
 
-    for(i=0;i<len;i++)
-    {
-        if(strlen(list[i].name)>strlen(list[iMax].name)||flag==0)
-        {
-            flag=1;
-            iMax=i;
-        }
-    }
-    return iMax;
-}
 
-getCappedAlphabeticalString
-
-getPhone
-
-getDNI
-
-getCUIT
-
-getCellPhone
+///getCappedAlphabeticalString
+//
+///getPhone
+//
+///getDNI
+//
+///getCUIT
+//
+///getCellPhone
 

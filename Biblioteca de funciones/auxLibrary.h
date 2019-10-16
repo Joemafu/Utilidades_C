@@ -67,6 +67,16 @@ int addElement(sStruct*, int len, int id);
  */
 int checkAllEmpty (sStruct*, int);
 
+/** \brief Checks the existence of an element by its ID.
+ *
+ * \param Structure to search on.
+ * \param Lenght of the structure.
+ * \param ID of the element to search for.
+ * \return Returns 1 if the element does exist or 0 if it does not.
+ *
+ */
+int checkExistence (sStruct* list,int len,int id);
+
 /** \brief Finds an Element by Id and returns the index position in array.
 *
 * \param list sStruct*
@@ -109,13 +119,32 @@ int getAlphabeticalString (char[], char[],int);
  */
 int getAlphanumericalString (char message[],char string[],int maxLen);
 
-/** \brief Prints a message asking for confirmation by s/n. Validates (Admits upper and lower case) and
- *         returns 1 for 's' y 0 for 'n'.
+/** \brief Expects s/n. Validates (Admits upper and lower case) and returns 1 for 's' y 0 for 'n'.
  *
  * \return int Returns 1 for 's' and 0 for 'n'.
  *
  */
 int getConfirm();
+
+/** \brief Prints a message that gets by param. and expects for a number that reresents a valid day of the month and year
+ *         that getts by param. It recognizes leap-years.
+ *
+ * \param char[] Message to print.
+ * \param int Year to validate.
+ * \param int Month to validate.
+ * \return
+ *
+ */
+int getDay (char message[],int year, int month);
+
+/** \brief Prints a message and expects for an email-formatted string. Validates and saves the string in the param string.
+ *
+ * \param Message to print.
+ * \param String to save the email on.
+ * \return Returns 1 for success.
+ *
+ */
+int getEmail (char message[],char string[],int maxLen);
 
 /** \brief Prints a message and expects for a float value (Positive and negative values admitted).
  *
@@ -161,6 +190,13 @@ float getPositiveFloat(char[]);
  *
  */
 int getPositiveInt(char[]);
+
+/** \brief Expects f/m. Validates (Admits upper and lower case) and returns F for 'f' y M for 'm'.
+ *
+ * \return int Returns F for 'f' and M for 'm'.
+ *
+ */
+char getSex();
 
 /** \brief Function with testing purpose only.
  *
@@ -240,6 +276,16 @@ void printTab ();
 *
 */
 int removeElement(sStruct* list, int len, int id);
+
+
+/** \brief Searches for the element with the longest of a determinated string value.
+ *
+ * \param Array to search on.
+ * \param Length of the array.
+ * \return
+ *
+ */
+int searchForLongestString (sStruct* list,int len);
 
 /** \brief Gets an options menu as a string, minimal and maximal valid option, prints the menu and gets
  *         selected option by scanf. Validate than the option is between the values provided by \param

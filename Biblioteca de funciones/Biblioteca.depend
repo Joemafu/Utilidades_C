@@ -11,8 +11,8 @@
 1570125031 source:c:\users\joel\google drive\workspace\biblioteca de funciones\main.c
 	"ArrayEmployees.h"
 
-1570681542 source:c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\main.c
-	"ArrayEmployees.h"
+1571258051 source:c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\main.c
+	"auxLibrary.h"
 
 1570680481 c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\arrayemployees.h
 	<stdio.h>
@@ -22,4 +22,13 @@
 
 1570681521 source:c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\arrayemployees.c
 	"ArrayEmployees.h"
+
+1571258030 c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\auxlibrary.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571258082 source:c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\auxlibrary.c
+	"auxLibrary.h"
 

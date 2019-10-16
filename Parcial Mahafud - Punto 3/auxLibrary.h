@@ -277,6 +277,16 @@ void printTab ();
 */
 int removeElement(sStruct* list, int len, int id);
 
+
+/** \brief Searches for the element with the longest of a determinated string value.
+ *
+ * \param Array to search on.
+ * \param Length of the array.
+ * \return
+ *
+ */
+int searchForLongestString (sStruct* list,int len);
+
 /** \brief Gets an options menu as a string, minimal and maximal valid option, prints the menu and gets
  *         selected option by scanf. Validate than the option is between the values provided by \param
  *         and returns it as an int.
