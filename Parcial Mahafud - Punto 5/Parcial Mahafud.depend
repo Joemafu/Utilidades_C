@@ -1,0 +1,256 @@
+# depslib dependency file v1.0
+1571100421 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\functions.c
+	"Functions.h"
+
+1571104057 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1570954233 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1571102294 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1571103626 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\teams.h
+	"Functions.h"
+
+1571097591 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\teams.c
+	"Teams.h"
+
+1571103219 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\players.c
+	"Players.h"
+
+1571103626 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\players.h
+	"Functions.h"
+
+1571028673 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\date.c
+	"Date.h"
+
+1571039856 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\date.h
+
+1571100532 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\referees.c
+	"Referees.h"
+
+1571103626 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\referees.h
+	"Functions.h"
+
+1571104010 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\matches.c
+	"Matches.h"
+
+1571103626 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud\matches.h
+	"Functions.h"
+
+1571115834 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\functions.c
+	"Functions.h"
+
+1571116436 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571113976 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\matches.c
+	"Matches.h"
+
+1571118532 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\matches.h
+	"Functions.h"
+
+1571116228 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\players.c
+	"Players.h"
+
+1571116465 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\players.h
+	"Functions.h"
+	"Teams.h"
+
+1571118572 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\referees.c
+	"Referees.h"
+
+1571118393 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\referees.h
+	"Functions.h"
+
+1571117321 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1571116436 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\teams.h
+	"Functions.h"
+
+1571114401 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 2\teams.c
+	"Teams.h"
+
+1571115834 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\functions.c
+	"Functions.h"
+
+1571116436 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571118572 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\referees.c
+	"Referees.h"
+
+1571118393 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\referees.h
+	"Functions.h"
+
+1571199187 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\teams.c
+	"Teams.h"
+
+1571199187 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\teams.h
+	"Functions.h"
+
+1571199255 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1571194653 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\players.h
+	"Functions.h"
+	"Teams.h"
+
+1571118532 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\matches.h
+	"Functions.h"
+
+1571118794 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\matches.c
+	"Matches.h"
+
+1571196773 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 3\players.c
+	"Players.h"
+
+1571303276 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\functions.c
+	"Functions.h"
+
+1571303276 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571303276 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\players.c
+	"Players.h"
+
+1571303276 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\players.h
+	"Functions.h"
+	"Teams.h"
+
+1571303276 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\teams.h
+	"Functions.h"
+
+1571305379 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1571304727 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\referees.h
+	"Functions.h"
+
+1571305157 c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\matches.h
+	"Functions.h"
+	"Teams.h"
+	"Referees.h"
+
+1571307853 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\referees.c
+	"Referees.h"
+
+1571303276 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\teams.c
+	"Teams.h"
+
+1571307728 source:c:\users\joel\google drive\workspace\utilidades_parcial\parcial mahafud - punto 4\matches.c
+	"Matches.h"
+
+1571303276 source:d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\functions.c
+	"Functions.h"
+
+1571303276 d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571317001 source:d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1571303276 d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\teams.h
+	"Functions.h"
+
+1571315361 d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\players.h
+	"Functions.h"
+	"Teams.h"
+
+1571317555 d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\referees.h
+	"Functions.h"
+
+1571317441 d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\matches.h
+	"Functions.h"
+	"Teams.h"
+	"Referees.h"
+
+1571317275 source:d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\matches.c
+	"Matches.h"
+
+1571316358 source:d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\referees.c
+	"Referees.h"
+
+1571303276 source:d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\teams.c
+	"Teams.h"
+
+1571315780 source:d:\mahafud\utilidades_parcial\parcial mahafud - punto 5\players.c
+	"Players.h"
+
+1571303276 source:c:\users\alumno\desktop\parcial mahafud - parte 5\functions.c
+	"Functions.h"
+
+1571303276 c:\users\alumno\desktop\parcial mahafud - parte 5\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571318635 source:c:\users\alumno\desktop\parcial mahafud - parte 5\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1571303276 c:\users\alumno\desktop\parcial mahafud - parte 5\teams.h
+	"Functions.h"
+
+1571315361 c:\users\alumno\desktop\parcial mahafud - parte 5\players.h
+	"Functions.h"
+	"Teams.h"
+
+1571317555 c:\users\alumno\desktop\parcial mahafud - parte 5\referees.h
+	"Functions.h"
+
+1571317441 c:\users\alumno\desktop\parcial mahafud - parte 5\matches.h
+	"Functions.h"
+	"Teams.h"
+	"Referees.h"
+
+1571317275 source:c:\users\alumno\desktop\parcial mahafud - parte 5\matches.c
+	"Matches.h"
+
+1571316358 source:c:\users\alumno\desktop\parcial mahafud - parte 5\referees.c
+	"Referees.h"
+
+1571318635 source:c:\users\alumno\desktop\parcial mahafud - parte 5\teams.c
+	"Teams.h"
+
+1571317850 source:c:\users\alumno\desktop\parcial mahafud - parte 5\players.c
+	"Players.h"
+
