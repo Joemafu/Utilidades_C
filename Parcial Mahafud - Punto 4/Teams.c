@@ -301,7 +301,6 @@ int printAllTeams(sTeam* list, int len)
             printATeam(list, i);
         }
         system("pause");
-        system("cls");
     }
     else
     {

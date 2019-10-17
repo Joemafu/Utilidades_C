@@ -19,6 +19,7 @@ void addPlayer(sPlayer* list,sTeam* teamList, int lenP,int lenT, int* id)
 
                 do
                 {
+                    printAllTeams(teamList,lenT);
                     list[i].teamCode=getIntMinMax("Codigo de equipo: ",1,TEAMS);
                     r=checkTeamExistence(teamList,lenT,list[i].teamCode);                         ///VALIDA QUE EXISTA EL EQUIPO
                 }
