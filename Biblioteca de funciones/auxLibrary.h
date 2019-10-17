@@ -9,7 +9,7 @@ typedef struct
     int dia;
     int mes;
     int anio;
-}eFecha;
+} eFecha;
 
 struct
 {
@@ -29,7 +29,7 @@ typedef struct
     char nombre[51];
     int estaVacio;
     eFecha fechaNac;
-}ePropietario;
+} ePropietario;
 
 typedef struct
 {
@@ -40,7 +40,7 @@ typedef struct
     int idPropietario;
     int estaEstacionado;
     int isEmpty;
-}eVehiculo;
+} eVehiculo;
 
 
 /**\brief add in an existing list of Elements the values received as parameters

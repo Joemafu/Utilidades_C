@@ -8,7 +8,7 @@ typedef struct
     int month;
     int year;
 
-}sDate;
+} sDate;
 
 #endif // DATE_H
 
@@ -25,7 +25,7 @@ typedef struct
     sDate birthDate;
     int isEmpty;
 
-}sReferee;
+} sReferee;
 #endif // REFEREES_H
 
 #ifndef MATCHES_H
@@ -39,7 +39,7 @@ typedef struct
     int refereeCode;
     sDate date;
     int isEmpty;
-}sMatch;
+} sMatch;
 #endif // MATCHES_H
 
 /**\brief add in an existing list of Elements the values received as parameters
@@ -76,6 +76,15 @@ int checkAllRefereesEmpty (sReferee* list, int len);
  */
 int checkRefereeExistence (sReferee* list,int len,int id);
 
+/** \brief Deletes an element from an array.
+ *
+ * \param list sTeam* Array to delete an element from.
+ * \param len int Length of the array.
+ * \return void
+ *
+ */
+void deleteReferee(sReferee* list,int len);
+
 /** \brief Function with testing purpose only.
  *
  * \param Struct *Array.
@@ -105,6 +114,32 @@ int initReferees(sReferee* list, int len);
  *
  */
 void printMostExperiencedReferee(sReferee* referee,sMatch* match,int lenR,int lenM);
+
+/** \brief Prints an Element's data by index number.
+ *
+ * \param Struct* Array.
+ * \param Number of index of the element to print.
+ * \return Returns -1 when the index is not found or it is associated to an isEmpty (erased) element.
+ *         in case of success, returns the index.
+ *
+ */
+int printAReferee (sReferee* list, int i);
+
+/** \brief Prints the content of Elements array
+*
+* \param list sStruct*
+* \param length int
+* \return int
+*
+*/
+int printReferees(sReferee* list, int len);
+
+/** \brief Prints a categories tab of the Elements using the same order than the function printAnElement.
+ *
+ * \return Void.
+ *
+ */
+void printRefereeTab ();
 
 /** \brief Searches an array for an ID that receives by param, and prints the value name of the element.
  *

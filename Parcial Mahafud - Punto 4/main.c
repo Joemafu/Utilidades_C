@@ -19,16 +19,17 @@ int main()
     initPlayers(player,PLAYERS);
     initReferees(referee,REFEREES);
     initMatches(match,MATCHES);
-//    hardcodeTeams(team);
-//    hardcodePlayers(player);
-//    hardcodeReferees(referee);
-//    hardcodeMatches(match);
-//    teamCode+=10;
-//    playerCode+=100;
-//    refereeCode+=6;
-//    matchCode+=25;
+    hardcodeTeams(team);
+    hardcodePlayers(player);
+    hardcodeReferees(referee);
+    hardcodeMatches(match);
+    teamCode+=10;
+    playerCode+=100;
+    refereeCode+=6;
+    matchCode+=25;
 
-    do{
+    do
+    {
         system("cls");
         option=showMenuGetOption("Seleccione una opcion:\n\n\
      1) Alta de equipos.\n\
@@ -102,6 +103,7 @@ int main()
         case 17: ///SALIR.
             break;
         }
-    }while(option!=17);
+    }
+    while(option!=17);
     return 0;
 }

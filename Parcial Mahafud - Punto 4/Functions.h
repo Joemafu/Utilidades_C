@@ -11,7 +11,7 @@ typedef struct
     int month;
     int year;
 
-}sDate;
+} sDate;
 #endif // DATE_H
 
 #ifndef TEAMS_H
@@ -24,7 +24,7 @@ typedef struct
     char locality[33];
     float averageAge;
     int isEmpty;
-}sTeam;
+} sTeam;
 #endif // TEAMS_H
 
 #ifndef REFEREES_H
@@ -40,7 +40,7 @@ typedef struct
     sDate birthDate;
     int isEmpty;
 
-}sReferee;
+} sReferee;
 #endif // REFEREES_H
 
 #ifndef MATCHES_H
@@ -54,7 +54,7 @@ typedef struct
     int refereeCode;
     sDate date;
     int isEmpty;
-}sMatch;
+} sMatch;
 #endif // MATCHES_H
 
 #ifndef PLAYERS_H
@@ -69,7 +69,7 @@ typedef struct
     char sex;
     sDate birthDate;
     int isEmpty;
-}sPlayer;
+} sPlayer;
 #endif // PLAYERS_H
 
 /** \brief Prints a message that receives by para, expects a string, upper and lower cases, spaces and apostrophes

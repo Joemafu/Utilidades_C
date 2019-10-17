@@ -74,7 +74,7 @@ int checkRefereeExistence(sReferee* list,int len,int id)
     int i;
     int ret=0;
 
-    for(i=0;i<len;i++)
+    for(i=0; i<len; i++)
     {
         if((id==list[i].code)&&(list[i].isEmpty==0))
         {
@@ -88,15 +88,57 @@ int checkRefereeExistence(sReferee* list,int len,int id)
     return ret;
 }
 
+void deleteReferee(sReferee* list,int len)
+{
+    int i;
+    int id;
+    int e;
+
+    if(checkAllRefereesEmpty(list,len)==0)
+    {
+        do
+        {
+            id=getIntMinMax("Ingrese el codigo del referi a dar de baja: ",1,len);
+            e=checkRefereeExistence(list,len,id);
+        }
+        while(e==0);
+
+        for (i=0; i<len; i++)
+        {
+            if(list[i].code==id)
+            {
+                printf("Esta a punto de eliminar el siguiente referi:\n\n");
+                printRefereeTab();
+                printAReferee(list,i);
+                if(getConfirm()==1)
+                {
+                    list[i].isEmpty=1;
+                    showMessage("El referi se dio de baja con exito.\n");
+                }
+                else
+                {
+                    showMessage("Se cancelo la baja.\n");
+                }
+                break;
+            }
+        }
+    }
+    else
+    {
+        showMessage("No hay ningun referi cargado.\n");
+    }
+}
+
 void hardcodeReferees (sReferee* list)
 {
     int code[6]= {1,2,3,4,5,6};
-    char name[6][31]={"Nicolas","Nazareno","Dario","Fernando","Gisella","Yael"};
+    char name[6][31]= {"Nicolas","Nazareno","Dario","Fernando","Gisella","Yael"};
     char lastName[6][31]= {"Lamolina","Arasa","Herrera","Espinoza","Trucco","Falcon Perez"};
+    char eMail[6][31]= {"nicolas.lamolina@futbol5.com","nazareno.referi@gmail.com","herrera_dario@arbitraje.com","fer.espinoza@yahoo.com.ar","trucco_gise@gmail.com","fperezyael@hotmail.com"};
     char sex[6]= {'M','M','M','M','F','F'};
-    int year[6]={1980,1981,1975,1970,1986,1989};
-    int month[6]={8,10,5,6,6,2};
-    int day[6]={15,5,20,22,12,1};
+    int year[6]= {1980,1981,1975,1970,1986,1989};
+    int month[6]= {8,10,5,6,6,2};
+    int day[6]= {15,5,20,22,12,1};
     int i;
 
     for(i=0; i<6; i++)
@@ -104,6 +146,7 @@ void hardcodeReferees (sReferee* list)
         list[i].code=code[i];
         strcpy(list[i].name,name[i]);
         strcpy(list[i].lastName,lastName[i]);
+        strcpy(list[i].email,eMail[i]);
         list[i].sex=sex[i];
         list[i].birthDate.year=year[i];
         list[i].birthDate.month=month[i];
@@ -133,6 +176,45 @@ int initReferees(sReferee* list, int len)
     return ret;
 }
 
+int printAReferee (sReferee* list, int i)
+{
+    int ret=-1;
+    if (list[i].isEmpty==0)
+    {
+        printf("%03d\t%-15s\t%-15s\t\t%c\t%-25s\t%02d/%02d/%d\n",list[i].code,list[i].lastName,list[i].name,list[i].sex,list[i].email,list[i].birthDate.day,list[i].birthDate.month,list[i].birthDate.year);
+        ret=i;
+    }
+    return ret;
+}
+
+int printReferees(sReferee* list, int len)
+{
+    int i;
+    system("cls");
+    if(checkAllRefereesEmpty(list,len)==0)
+    {
+        printRefereeTab();
+        for(i=0; i<len; i++)
+        {
+            printAReferee(list, i);
+        }
+        system("pause");
+        system("cls");
+    }
+    else
+    {
+        showMessage("No hay referis cargados.\n");
+    }
+
+    return 0;
+}
+
+void printRefereeTab ()
+{
+    printf("CODIGO\tAPELLIDO\tNOMBRE\t\t\tSEXO\teMAIL\t\t\t\tFECHA DE NAC.\n\n");
+    return;
+}
+
 void printMostExperiencedReferee(sReferee* referee,sMatch* match,int lenR,int lenM)
 {
     int i;
@@ -140,7 +222,6 @@ void printMostExperiencedReferee(sReferee* referee,sMatch* match,int lenR,int le
     int counter;
     int flag=0;
     int maxMatches;
-    int maxIndex;
 
     if(checkAllRefereesEmpty(referee,lenR)==1)
     {
@@ -148,12 +229,13 @@ void printMostExperiencedReferee(sReferee* referee,sMatch* match,int lenR,int le
     }
     else
     {
-        for(i=0;i<lenR;i++)
+        ///BUSCO EL MAXIMO EN PARTIDOS DIRIGIDOS.
+        for(i=0; i<lenR; i++)
         {
             counter=0;
             if(referee[i].isEmpty==0)
             {
-                for(j=0;j<lenM;j++)
+                for(j=0; j<lenM; j++)
                 {
                     if((match[j].isEmpty==0)&&(match[j].refereeCode==referee[i].code))
                     {
@@ -162,14 +244,38 @@ void printMostExperiencedReferee(sReferee* referee,sMatch* match,int lenR,int le
                 }
                 if(flag==0||counter>maxMatches)
                 {
-                    maxIndex=i;
                     maxMatches=counter;
                     flag=1;
                 }
-
             }
         }
-        printf("El referi que mas partidos dirigio es %s %s (%d partidos)\n",referee[maxIndex].lastName,referee[maxIndex].name,maxMatches);
+
+        ///COMPARO EL MAXIMO ENCONTRADO E IMPRIMO CADA RESULTADO.
+        flag=0;
+        for(i=0; i<lenR; i++)
+        {
+            counter=0;
+            if(referee[i].isEmpty==0)
+            {
+                for(j=0; j<lenM; j++)
+                {
+                    if((match[j].isEmpty==0)&&(match[j].refereeCode==referee[i].code))
+                    {
+                        counter++;
+                    }
+                }
+                if(flag==0)
+                {
+                    flag=1;
+                    printf("Referi/s con mas partidos dirigidos (%d partidos): \n\n",maxMatches);
+                    printRefereeTab();
+                }
+                if(counter==maxMatches)
+                {
+                    printAReferee(referee,i);
+                }
+            }
+        }
         system("pause");
     }
 }
@@ -178,7 +284,7 @@ void printRefereeNameByCode (sReferee* list, int lenT, int code)
 {
     int i;
 
-    for(i=0;i<lenT;i++)
+    for(i=0; i<lenT; i++)
     {
         if(list[i].isEmpty==0&&code==list[i].code)
         {

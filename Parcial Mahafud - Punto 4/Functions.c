@@ -32,7 +32,8 @@ void getAlphabeticalString (char message[],char string[],int maxLen)
             }
         }
 
-    }while(len==0);
+    }
+    while(len==0);
     return;
 }
 
@@ -69,7 +70,8 @@ int getAlphanumericalString (char message[],char string[],int maxLen)
             }
         }
 
-    }while(len==0||ret==0);
+    }
+    while(len==0||ret==0);
 
 
     return ret;
@@ -185,7 +187,8 @@ int getEmail (char message[],char string[],int maxLen)
         {
             printf("\nFormato de eMail invalido, verifique e intente nuevamente.\n\n");
         }
-    }while(len==0||ret<1);
+    }
+    while(len==0||ret<1);
     return ret;
 }
 
@@ -205,7 +208,7 @@ int getIntMinMax(char message[],int min,int max)
         {
             success--;
         }
-        for(i=1;string[i]!='\0';i++)
+        for(i=1; string[i]!='\0'; i++)
         {
             if((string[i]<48||string[i]>57)||(success<0))
             {
@@ -219,7 +222,8 @@ int getIntMinMax(char message[],int min,int max)
             printf("Ingrese un valor numerico valido. (Solo numeros enteros entre %d y %d).\n\n",min,max);
             success--;
         }
-     }while(success<0);
+    }
+    while(success<0);
 
     return ret;
 }
@@ -235,7 +239,7 @@ int getPositiveInt(char message[])
         scanf("%s",string);
         fflush(stdin);
         ret=0;
-        for(i=0;string[i]!='\0';i++)
+        for(i=0; string[i]!='\0'; i++)
         {
             if(string[i]<48||string[i]>57)
             {
@@ -244,7 +248,8 @@ int getPositiveInt(char message[])
                 break;
             }
         }
-    }while(ret==-1);
+    }
+    while(ret==-1);
     ret=atoi(string);
     return ret;
 }

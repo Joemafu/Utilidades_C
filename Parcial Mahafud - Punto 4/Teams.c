@@ -86,7 +86,7 @@ int checkTeamExistence (sTeam* list,int len,int id)
     int i;
     int ret=0;
 
-    for(i=0;i<len;i++)
+    for(i=0; i<len; i++)
     {
         if((id==list[i].code)&&(list[i].isEmpty==0))
         {
@@ -112,9 +112,10 @@ void deleteTeam(sTeam* list,int len)
         {
             id=getIntMinMax("Ingrese el codigo del equipo a dar de baja: ",1,len);
             e=checkTeamExistence(list,len,id);
-        }while(e==0);
+        }
+        while(e==0);
 
-        for (i=0;i<len;i++)
+        for (i=0; i<len; i++)
         {
             if(list[i].code==id)
             {
@@ -125,14 +126,16 @@ void deleteTeam(sTeam* list,int len)
                 {
                     list[i].isEmpty=1;
                     showMessage("El equipo se dio de baja con exito.\n");
-                }else
+                }
+                else
                 {
                     showMessage("Se cancelo la baja.\n");
                 }
                 break;
             }
         }
-    }else
+    }
+    else
     {
         showMessage("No hay ningun equipo cargado.\n");
     }
@@ -145,13 +148,13 @@ void getTeamsAverageAge (sTeam* team,sPlayer* player,int lenT,int lenP)
     int counter;
     int ageAccumulator;
 
-    for(i=0;i<lenT;i++)
+    for(i=0; i<lenT; i++)
     {
         if(team[i].isEmpty==0)
         {
             counter=0;
             ageAccumulator=0;
-            for(j=0;j<lenP;j++)
+            for(j=0; j<lenP; j++)
             {
                 if(player[j].isEmpty==0&&player[j].teamCode==team[i].code)
                 {
@@ -224,9 +227,10 @@ void modifyTeam(sTeam* list,int len)
         {
             id=getIntMinMax("Ingrese el codigo del equipo a modificar: ",1,len);
             e=checkTeamExistence(list,len,id);
-        }while(e==0);
+        }
+        while(e==0);
 
-        for (i=0;i<len;i++)
+        for (i=0; i<len; i++)
         {
             if(list[i].code==id)
             {
@@ -248,7 +252,8 @@ void modifyTeam(sTeam* list,int len)
                         printTeamTab();
                         printATeam(list,i);
                         system("pause");
-                    }else
+                    }
+                    else
                     {
                         showMessage("Se cancelo la modificacion.\n");
                     }
@@ -265,7 +270,8 @@ void modifyTeam(sTeam* list,int len)
                         printTeamTab();
                         printATeam(list,i);
                         system("pause");
-                    }else
+                    }
+                    else
                     {
                         showMessage("Se cancelo la modificacion.\n");
                     }
@@ -276,7 +282,8 @@ void modifyTeam(sTeam* list,int len)
                 break;
             }
         }
-    }else
+    }
+    else
     {
         showMessage("No hay ningun equipo cargado.\n");
     }
@@ -295,7 +302,8 @@ int printAllTeams(sTeam* list, int len)
         }
         system("pause");
         system("cls");
-    }else
+    }
+    else
     {
         showMessage("No hay equipos cargados.\n");
     }
@@ -334,7 +342,7 @@ void printLongestTeam (sTeam* list,int len)
     else
     {
         ///BUSCO LA LONGITUD DEL NOMBRE MAS LARGO Y CUENTO LOS EQUIPOS CON ESA LONGITUD.
-        for(i=0;i<len;i++)
+        for(i=0; i<len; i++)
         {
             if(list[i].isEmpty==0)
             {
@@ -361,7 +369,7 @@ void printLongestTeam (sTeam* list,int len)
         if(counter>1)
         {
             printf("Los equipos con el nombre mas largo son: \n\n");
-            for(i=0;i<len;i++)
+            for(i=0; i<len; i++)
             {
                 if(list[i].isEmpty==0)
                 {
@@ -374,11 +382,13 @@ void printLongestTeam (sTeam* list,int len)
             if(counter==2)
             {
                 printf("\nAmbos con %d caracteres.\n",maxLen);
-            }else
+            }
+            else
             {
                 printf("\nTodos con %d caracteres.\n",maxLen);
             }
-        }else
+        }
+        else
         {
             printf("El equipo con el nombre mas largo es: %s (%d caracteres).\n\n",list[iMax].name,maxLen);
         }
@@ -390,7 +400,7 @@ void printTeamNameByCode (sTeam* list, int lenT, int code)
 {
     int i;
 
-    for(i=0;i<lenT;i++)
+    for(i=0; i<lenT; i++)
     {
         if(list[i].isEmpty==0&&code==list[i].code)
         {
@@ -411,7 +421,7 @@ void printTeamsByAverageAge (sTeam* team,sPlayer* player,int lenT,int lenP) ///V
     {
         sortTeamsByAverageAge(team,player,lenT,lenP);
 
-        for(i=0;i<lenT;i++)
+        for(i=0; i<lenT; i++)
         {
             if(team[i].isEmpty==0)
             {
@@ -433,9 +443,9 @@ void printTeamsByAverageAge (sTeam* team,sPlayer* player,int lenT,int lenP) ///V
 
 void printTeamTab ()
 {
-    char str[18]={"CODIGO"};
-    char stri[18]={"EQUIPO"};
-    char strin[18]={"LOCALIDAD"};
+    char str[18]= {"CODIGO"};
+    char stri[18]= {"EQUIPO"};
+    char strin[18]= {"LOCALIDAD"};
     printf("%s\t%18s\t\t%18s\n\n",str,stri,strin);
     return;
 }
@@ -475,12 +485,12 @@ int sortTeamsByCode(sTeam* list, int len)
         {
             for(j=1; j<len; j++)
             {
-                    if (list[i].code<list[j].code)
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
+                if (list[i].code<list[j].code)
+                {
+                    aux[0]=list[i];
+                    list[i]=list[j];
+                    list[j]=aux[0];
+                }
             }
         }
         ret=0;
@@ -505,12 +515,12 @@ int sortTeamsByName(sTeam* list, int len)
         {
             for(j=1; j<len; j++)
             {
-                    if (stricmp(list[i].name,list[j].name)<0)
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
+                if (stricmp(list[i].name,list[j].name)<0)
+                {
+                    aux[0]=list[i];
+                    list[i]=list[j];
+                    list[j]=aux[0];
+                }
             }
         }
         ret=0;

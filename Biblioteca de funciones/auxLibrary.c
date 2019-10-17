@@ -58,7 +58,7 @@ int checkExistence (sStruct* list,int len,int id)
     int i;
     int ret=0;
 
-    for(i=0;i<len;i++)
+    for(i=0; i<len; i++)
     {
         if((id==list[i].id)&&(list[i].isEmpty==0))
         {
@@ -139,7 +139,8 @@ int getAlphabeticalString (char message[],char string[],int maxLen)
             }
         }
 
-    }while(len==0||ret==0);
+    }
+    while(len==0||ret==0);
 
 
     return ret;
@@ -179,7 +180,8 @@ int getAlphanumericalString (char message[],char string[],int maxLen)
             }
         }
 
-    }while(len==0||ret==0);
+    }
+    while(len==0||ret==0);
 
 
     return ret;
@@ -296,7 +298,8 @@ int getEmail (char message[],char string[],int maxLen)
         {
             printf("\nFormato de eMail invalido, verifique e intente nuevamente.\n\n");
         }
-    }while(len==0||ret<1);
+    }
+    while(len==0||ret<1);
     return ret;
 }
 
@@ -318,7 +321,7 @@ float getFloat(char message[])
         {
             ret--;
         }
-        for(i=1;string[i]!='\0';i++)
+        for(i=1; string[i]!='\0'; i++)
         {
             if(string[i]==46)
             {
@@ -331,7 +334,8 @@ float getFloat(char message[])
                 break;
             }
         }
-     }while(ret<0);
+    }
+    while(ret<0);
     ret=atoi(string);
     return ret;
 }
@@ -352,7 +356,7 @@ int getInt(char message[])
         {
             ret--;
         }
-        for(i=1;string[i]!='\0';i++)
+        for(i=1; string[i]!='\0'; i++)
         {
             if(string[i]<48||string[i]>57||ret<0)
             {
@@ -361,7 +365,8 @@ int getInt(char message[])
                 break;
             }
         }
-     }while(ret<0);
+    }
+    while(ret<0);
     ret=atoi(string);
     return ret;
 }
@@ -383,7 +388,7 @@ int getIntMinMax(char message[],int min,int max)
         {
             success--;
         }
-        for(i=1;string[i]!='\0';i++)
+        for(i=1; string[i]!='\0'; i++)
         {
             if((string[i]<48||string[i]>57)||(success<0))
             {
@@ -397,7 +402,8 @@ int getIntMinMax(char message[],int min,int max)
             printf("Ingrese un valor numerico valido. (Solo numeros enteros entre %d y %d).\n\n",min,max);
             success--;
         }
-     }while(success<0);
+    }
+    while(success<0);
 
     return ret;
 }
@@ -415,7 +421,7 @@ float getPositiveFloat(char message[])
         scanf("%s",string);
         fflush(stdin);
         ret=0;
-        for(i=0;string[i]!='\0';i++)
+        for(i=0; string[i]!='\0'; i++)
         {
             if(string[i]==46)
             {
@@ -429,7 +435,8 @@ float getPositiveFloat(char message[])
                 break;
             }
         }
-    }while(ret<0);
+    }
+    while(ret<0);
     ret=atof(string);
     return ret;
 }
@@ -446,7 +453,7 @@ int getPositiveInt(char message[])
         scanf("%s",string);
         fflush(stdin);
         ret=0;
-        for(i=0;string[i]!='\0';i++)
+        for(i=0; string[i]!='\0'; i++)
         {
             if(string[i]<48||string[i]>57)
             {
@@ -455,7 +462,8 @@ int getPositiveInt(char message[])
                 break;
             }
         }
-    }while(ret==-1);
+    }
+    while(ret==-1);
     ret=atoi(string);
     return ret;
 }
@@ -684,7 +692,7 @@ int searchForLongestString (sStruct* list,int len)
     int iMax;
     int flag=0;
 
-    for(i=0;i<len;i++)
+    for(i=0; i<len; i++)
     {
         if(flag==0||strlen(list[i].name)>strlen(list[iMax].name))
         {

@@ -9,7 +9,7 @@ typedef struct
     int month;
     int year;
 
-}sDate;
+} sDate;
 #endif // DATE_H
 
 #ifndef TEAMS_H
@@ -22,7 +22,7 @@ typedef struct
     char locality[33];
     float averageAge;
     int isEmpty;
-}sTeam;
+} sTeam;
 #endif // TEAMS_H
 
 #ifndef PLAYERS_H
@@ -37,7 +37,7 @@ typedef struct
     char sex;
     sDate birthDate;
     int isEmpty;
-}sPlayer;
+} sPlayer;
 #endif // PLAYERS_H
 
 /**\brief add in an existing list of Elements the values received as parameters

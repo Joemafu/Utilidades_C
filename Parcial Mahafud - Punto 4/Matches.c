@@ -28,7 +28,8 @@ void addMatch(sMatch* matchList,sTeam* teamList,sReferee* refereeList, int lenM,
                     {
                         matchList[i].visitorCode=getIntMinMax("Codigo de equipo visitante: ",1,TEAMS);
                         r=checkTeamExistence(teamList,lenT,matchList[i].visitorCode);
-                    }while(r==0);
+                    }
+                    while(r==0);
                     do
                     {
                         matchList[i].localCode=getIntMinMax("Codigo de equipo local: ",1,TEAMS);
@@ -38,12 +39,14 @@ void addMatch(sMatch* matchList,sTeam* teamList,sReferee* refereeList, int lenM,
                             showMessage("El equipo local no puede ser el mismo que el visitante.\n");
                             r=0;
                         }
-                    }while(r==0);
+                    }
+                    while(r==0);
                     do
                     {
                         matchList[i].refereeCode=getIntMinMax("Codigo de referi: ",1,TEAMS);
                         r=checkRefereeExistence(refereeList,lenR,matchList[i].refereeCode);
-                    }while(r==0);
+                    }
+                    while(r==0);
 
                     matchList[i].date.year=getIntMinMax("Anio: ",1900,2050);
                     matchList[i].date.month=getIntMinMax("Mes: ",1,12);
@@ -69,7 +72,8 @@ void addMatch(sMatch* matchList,sTeam* teamList,sReferee* refereeList, int lenM,
                 end=1;
             }
         }
-    }else
+    }
+    else
     {
         showMessage("No se puede cargar el partido, arbitro o equipos insuficientes.\n");
         end=1;
@@ -96,15 +100,75 @@ int checkAllMatchesEmpty (sMatch* list, int len)
     return ret;
 }
 
+int checkMatchExistence(sMatch* list,int len,int id)
+{
+    int i;
+    int ret=0;
+
+    for(i=0; i<len; i++)
+    {
+        if((id==list[i].code)&&(list[i].isEmpty==0))
+        {
+            ret=1;
+        }
+    }
+    if(ret==0)
+    {
+        showMessage("El codigo de partido ingresado no existe.\n");
+    }
+    return ret;
+}
+
+void deleteMatch(sMatch* list,sTeam* teamList, sReferee* refereeList,int len,int lenT,int lenR)
+{
+    int i;
+    int id;
+    int e;
+
+    if(checkAllMatchesEmpty(list,len)==0)
+    {
+        do
+        {
+            id=getIntMinMax("Ingrese el codigo del partido a dar de baja: ",1,len);
+            e=checkMatchExistence(list,len,id);
+        }
+        while(e==0);
+
+        for (i=0; i<len; i++)
+        {
+            if(list[i].code==id)
+            {
+                printf("Esta a punto de eliminar el siguiente partido:\n\n");
+                printMatchTab();
+                printAMatch(list,teamList,refereeList,i,lenT,lenR);
+                if(getConfirm()==1)
+                {
+                    list[i].isEmpty=1;
+                    showMessage("El partido se dio de baja con exito.\n");
+                }
+                else
+                {
+                    showMessage("Se cancelo la baja.\n");
+                }
+                break;
+            }
+        }
+    }
+    else
+    {
+        showMessage("No hay ningun partido cargado.\n");
+    }
+}
+
 void hardcodeMatches (sMatch* list)
 {
     int matchCode[25]= {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
-    int visitorCode[25]={1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5};
-    int localCode[25]={10,9,8,7,6,4,3,2,1,5,8,7,6,10,9,2,1,5,4,3,6,10,9,8,7};
-    int day[25]={21,21,21,21,21,28,28,28,28,28,5,5,5,5,5,12,12,12,12,12,19,19,19,19,19 };
-    int month[25]={9,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10};
-    int year[25]={2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019};
-    int refereeCode[25]={1,2,6,4,5,1,2,3,4,6,6,2,3,4,5,1,6,3,4,5,1,2,3,6,5};
+    int visitorCode[25]= {1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5};
+    int localCode[25]= {10,9,8,7,6,4,3,2,1,5,8,7,6,10,9,2,1,5,4,3,6,10,9,8,7};
+    int day[25]= {21,21,21,21,21,28,28,28,28,28,5,5,5,5,5,12,12,12,12,12,19,19,19,19,19 };
+    int month[25]= {9,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10};
+    int year[25]= {2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019,2019};
+    int refereeCode[25]= {1,2,6,4,5,1,2,3,4,6,6,2,3,4,5,1,6,3,4,5,1,2,3,6,5};
     int i;
 
     for(i=0; i<25; i++)
@@ -154,7 +218,8 @@ int printAllMatches(sMatch* match,sTeam* team,sReferee* referee, int lenM,int le
         }
         system("pause");
         system("cls");
-    }else
+    }
+    else
     {
         showMessage("No hay partidos cargados.\n");
     }
@@ -176,7 +241,8 @@ int printAllMatchesByDate(sMatch* match,sTeam* team,sReferee* referee, int lenM,
         }
         system("pause");
         system("cls");
-    }else
+    }
+    else
     {
         showMessage("No hay partidos cargados.\n");
     }
@@ -190,7 +256,7 @@ void printAMatch (sMatch* match,sTeam* team,sReferee* referee, int i,int lenT,in
     if (match[i].isEmpty==0)
     {
         printf("    %04d",match[i].code);
-        for(j=0;j<lenT;j++)
+        for(j=0; j<lenT; j++)
         {
             if(team[j].isEmpty==0&&match[i].localCode==team[j].code)
             {
@@ -198,7 +264,7 @@ void printAMatch (sMatch* match,sTeam* team,sReferee* referee, int i,int lenT,in
                 break;
             }
         }
-        for(j=0;j<lenT;j++)
+        for(j=0; j<lenT; j++)
         {
             if(team[j].isEmpty==0&&match[i].visitorCode==team[j].code)
             {
@@ -206,7 +272,7 @@ void printAMatch (sMatch* match,sTeam* team,sReferee* referee, int i,int lenT,in
                 break;
             }
         }
-        for(j=0;j<lenR;j++)
+        for(j=0; j<lenR; j++)
         {
             if(referee[j].isEmpty==0&&match[i].refereeCode==referee[j].code)
             {
@@ -234,7 +300,7 @@ void printMatchesByDate(sMatch* match,sTeam* team,sReferee* referee,int lenM,int
         aux.month=getIntMinMax("Mes: ",1,12);
         aux.day=getDay("Dia: ",aux.year,aux.month);
 
-        for(i=0;i<lenM;i++)
+        for(i=0; i<lenM; i++)
         {
             if(match[i].isEmpty==0&&match[i].date.year==aux.year&&match[i].date.month==aux.month&&match[i].date.day==aux.day)
             {
@@ -279,49 +345,24 @@ int sortMatchesByDate(sMatch* list, int len, int order)
         {
             for(j=0; j<len-1; j++)
             {
-//                switch (order)
-//                {
-                ///DESCENDENTE:
-//                case 0:
-//                    if (list[i].sector>list[j].sector)
-//                    {
-//                        aux[0]=list[i];
-//                        list[i]=list[j];
-//                        list[j]=aux[0];
-//                    }
-//                    if((list[i].sector==list[j].sector)&&(stricmp(list[i].lastName,list[j].lastName)>0))
-//                    {
-//                        aux[0]=list[i];
-//                        list[i]=list[j];
-//                        list[j]=aux[0];
-//                    }
-//                    if ((list[i].sector==list[j].sector) && (stricmp(list[i].lastName,list[j].lastName)==0) && (stricmp(list[i].name,list[j].name)>0))
-//                    {
-//                        aux[0]=list[i];
-//                        list[i]=list[j];
-//                        list[j]=aux[0];
-//                    }break;
-                ///ASCENDENTE:
-//                case 1:
-                    if(list[i].date.year<list[j].date.year)
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-                    if((list[i].date.year==list[j].date.year)&&(list[i].date.month<list[j].date.month))
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-                    if((list[i].date.year==list[j].date.year)&&(list[i].date.month==list[j].date.month)&&(list[i].date.day<list[j].date.day))
-                    {
-                        aux[0]=list[i];
-                        list[i]=list[j];
-                        list[j]=aux[0];
-                    }
-//                }
+                if(list[i].date.year<list[j].date.year)
+                {
+                    aux[0]=list[i];
+                    list[i]=list[j];
+                    list[j]=aux[0];
+                }
+                if((list[i].date.year==list[j].date.year)&&(list[i].date.month<list[j].date.month))
+                {
+                    aux[0]=list[i];
+                    list[i]=list[j];
+                    list[j]=aux[0];
+                }
+                if((list[i].date.year==list[j].date.year)&&(list[i].date.month==list[j].date.month)&&(list[i].date.day<list[j].date.day))
+                {
+                    aux[0]=list[i];
+                    list[i]=list[j];
+                    list[j]=aux[0];
+                }
             }
         }
         ret=0;

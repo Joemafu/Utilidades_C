@@ -10,7 +10,7 @@ typedef struct
     char locality[33];
     float averageAge;
     int isEmpty;
-}sTeam;
+} sTeam;
 #endif // TEAMS_H
 
 /**\brief Adds in an existing list of Elements the values received as parameters

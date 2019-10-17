@@ -10,7 +10,7 @@ typedef struct
     int month;
     int year;
 
-}sDate;
+} sDate;
 
 #endif // DATE_H
 
@@ -24,7 +24,7 @@ typedef struct
     char locality[33];
     float averageAge;
     int isEmpty;
-}sTeam;
+} sTeam;
 #endif // TEAMS_H
 
 /**\brief add in an existing list of Elements the values received as parameters
@@ -50,6 +50,25 @@ void addMatch(sMatch* matchList,sTeam* teamList,sReferee* refereeList, int lenM,
  *
  */
 int checkAllMatchesEmpty (sMatch* list, int len);
+
+/** \brief Checks the existence of an element by its ID.
+ *
+ * \param Structure to search on.
+ * \param Lenght of the structure.
+ * \param ID of the element to search for.
+ * \return Returns 1 if the element does exist or 0 if it does not.
+ *
+ */
+int checkMatchExistence(sMatch* list,int len,int id);
+
+/** \brief Deletes an element from an array.
+ *
+ * \param list sTeam* Array to delete an element from.
+ * \param len int Length of the array.
+ * \return void
+ *
+ */
+void deleteMatch(sMatch* list,sTeam* teamList, sReferee* refereeList,int len,int lenT,int lenR);
 
 /** \brief Function with testing purpose only.
  *
