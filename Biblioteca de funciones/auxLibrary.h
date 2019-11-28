@@ -234,6 +234,15 @@ void informSalaryStat(sStruct*, int);
 */
 int initElements(sStruct* list, int len);
 
+/** \brief Compares two int values.
+ *
+ * \param int 1 value
+ * \param int 2 value
+ * \return returns 1 if first value is higher, -1 if second value is higher, or 0 if they're equal.
+ *
+ */
+int intCmp (int int1,int int2);
+
 /** \brief Prints an Element's data by index number.
  *
  * \param Struct* Array.
@@ -267,6 +276,13 @@ void printSeparation();
  */
 void printTab ();
 
+/** \brief Prints a message to let the user know that the data is under process.
+ *
+ * \return void
+ *
+ */
+void processing();
+
 /** \brief Remove a Element by Id (put isEmpty Flag in 1)
 *
 * \param list sStruct*
@@ -276,7 +292,6 @@ void printTab ();
 *
 */
 int removeElement(sStruct* list, int len, int id);
-
 
 /** \brief Searches for the element with the longest of a determinated string value.
  *

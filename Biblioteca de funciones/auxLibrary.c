@@ -1,6 +1,5 @@
 #include "auxLibrary.h"
 
-
 int addElement(sStruct* list, int len, int id)
 {
     int i;
@@ -36,7 +35,6 @@ int addElement(sStruct* list, int len, int id)
     return ret;
 }
 
-
 int checkAllEmpty (sStruct* list, int len)
 {
     int i;
@@ -51,7 +49,6 @@ int checkAllEmpty (sStruct* list, int len)
     }
     return ret;
 }
-
 
 int checkExistence (sStruct* list,int len,int id)
 {
@@ -72,7 +69,6 @@ int checkExistence (sStruct* list,int len,int id)
     return ret;
 }
 
-
 int findElementById(sStruct* list, int len,int id)
 {
     int i;
@@ -88,7 +84,6 @@ int findElementById(sStruct* list, int len,int id)
     return ret;
 }
 
-
 int findElementByString(sStruct* list, int len,char string[])
 {
     int i;
@@ -103,7 +98,6 @@ int findElementByString(sStruct* list, int len,char string[])
     }
     return ret;
 }
-
 
 int getAlphabeticalString (char message[],char string[],int maxLen)
 {
@@ -146,7 +140,6 @@ int getAlphabeticalString (char message[],char string[],int maxLen)
     return ret;
 }
 
-
 int getAlphanumericalString (char message[],char string[],int maxLen)
 {
     int i;
@@ -186,7 +179,6 @@ int getAlphanumericalString (char message[],char string[],int maxLen)
 
     return ret;
 }
-
 
 int getConfirm()
 {
@@ -303,7 +295,6 @@ int getEmail (char message[],char string[],int maxLen)
     return ret;
 }
 
-
 float getFloat(char message[])
 {
     int i;
@@ -340,7 +331,6 @@ float getFloat(char message[])
     return ret;
 }
 
-
 int getInt(char message[])
 {
     int i;
@@ -370,7 +360,6 @@ int getInt(char message[])
     ret=atoi(string);
     return ret;
 }
-
 
 int getIntMinMax(char message[],int min,int max)
 {
@@ -408,7 +397,6 @@ int getIntMinMax(char message[],int min,int max)
     return ret;
 }
 
-
 float getPositiveFloat(char message[])
 {
     int i;
@@ -441,7 +429,6 @@ float getPositiveFloat(char message[])
     return ret;
 }
 
-
 int getPositiveInt(char message[])
 {
     int i=0;
@@ -467,7 +454,6 @@ int getPositiveInt(char message[])
     ret=atoi(string);
     return ret;
 }
-
 
 char getSex()
 {
@@ -504,7 +490,6 @@ char getSex()
     return ret;
 }
 
-
 void hardcodeElements (sStruct* list)
 {
     int id[13]= {1,2,3,4,5,6,7,8,9,10,11,12,13};
@@ -526,7 +511,6 @@ void hardcodeElements (sStruct* list)
     return;
 }
 
-
 void hardcodePropietarios (sStruct* list)
 {
     int id[10]= {1,2,3,4,5,6,7,8,9,10};
@@ -547,7 +531,6 @@ void hardcodePropietarios (sStruct* list)
     }
     return;
 }
-
 
 void informSalaryStat(sStruct* list, int len)
 {
@@ -597,7 +580,6 @@ void informSalaryStat(sStruct* list, int len)
     return;
 }
 
-
 int initElements(sStruct* list, int len)
 {
     int i;
@@ -618,6 +600,22 @@ int initElements(sStruct* list, int len)
     return ret;
 }
 
+int intCmp (int int1,int int2)
+{
+    int ret;
+    if(int1>int2)
+    {
+        ret=1;
+    }else if(int1==int2)
+    {
+        ret=0;
+    }else
+    {
+        ret=-1;
+    }
+
+    return ret;
+}
 
 int printAnElement (sStruct* list, int i)
 {
@@ -629,7 +627,6 @@ int printAnElement (sStruct* list, int i)
     }
     return ret;
 }
-
 
 int printElements(sStruct* list, int length)
 {
@@ -645,12 +642,10 @@ int printElements(sStruct* list, int length)
     return 0;
 }
 
-
 void printSeparation()
 {
     printf("\n------------------------------------------------------\n\n");
 }
-
 
 void printTab ()
 {
@@ -658,6 +653,10 @@ void printTab ()
     return;
 }
 
+void processing()
+{
+    printf("Aguarde mientras se procesan los datos...\n");
+}
 
 int removeElement(sStruct* list, int len, int id)
 {
@@ -722,7 +721,6 @@ int showMenuGetOption(char message[], int min, int max)
     return option;
 }
 
-
 void showMessage(char message[])
 {
     system("cls");
@@ -731,14 +729,12 @@ void showMessage(char message[])
     system("cls");
 }
 
-
 void sortAndPrint(sStruct* list, int len, int order)
 {
     sortElementsByStringAndInt(list,len,order);
     printElements(list,len);
     return;
 }
-
 
 int sortElementsByIntStringAndString(sStruct* list, int len, int order)
 {
@@ -803,7 +799,6 @@ int sortElementsByIntStringAndString(sStruct* list, int len, int order)
     return ret;
 }
 
-
 int sortElementsByStringAndInt(sStruct* list, int len, int order)
 {
     int i;
@@ -856,6 +851,8 @@ int sortElementsByStringAndInt(sStruct* list, int len, int order)
     }
     return ret;
 }
+
+
 
 
 
