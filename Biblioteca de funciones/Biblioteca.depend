@@ -32,3 +32,15 @@
 1571258082 source:c:\users\joel\google drive\workspace\utilidades_parcial\biblioteca de funciones\auxlibrary.c
 	"auxLibrary.h"
 
+1572812723 source:c:\users\joelcck\google drive\workspace\utilidades_parcial\biblioteca de funciones\auxlibrary.c
+	"auxLibrary.h"
+
+1572812723 c:\users\joelcck\google drive\workspace\utilidades_parcial\biblioteca de funciones\auxlibrary.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1571258051 source:c:\users\joelcck\google drive\workspace\utilidades_parcial\biblioteca de funciones\main.c
+	"auxLibrary.h"
+
